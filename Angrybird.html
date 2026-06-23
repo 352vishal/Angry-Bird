@@ -140,19 +140,23 @@
 
         .letter-card {
             background: #fff9e6;
-            padding: 30px 20px;
+            padding: 20px 15px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 360px;
+            width: 95%;
             text-align: center;
+            /* Added fixes for mobile screens */
+            max-height: 55vh; 
+            overflow-y: auto; 
         }
 
         .letter-text {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.6rem;
+            font-size: 1.4rem; /* Adjusted for mobile */
             color: #4a4e69;
-            line-height: 1.5;
-            margin: 20px 0;
+            line-height: 1.4;
+            margin: 15px 0;
         }
 
         /* Screen 7: Forgiveness Meter */
@@ -198,7 +202,7 @@
             gap: 15px;
             width: 100%;
             max-width: 350px;
-            max-height: 60vh;
+            max-height: 55vh;
             overflow-y: auto;
             padding-bottom: 20px;
         }
@@ -221,8 +225,8 @@
             background: #f1fdf1;
         }
 
-        .bribe-icon { font-size: 3rem; margin-bottom: 5px; }
-        .bribe-title { font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #b71c1c; }
+        .bribe-icon { font-size: 2.5rem; margin-bottom: 5px; }
+        .bribe-title { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #b71c1c; }
         .bribe-desc { font-size: 0.9rem; color: #636e72; margin: 5px 0; }
         
         .check-mark {
@@ -232,6 +236,11 @@
             margin-top: 5px;
         }
         .bribe-card.selected .check-mark { display: block; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #ff758c; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -289,16 +298,16 @@
         </div>
     </div>
 
-    <!-- Screen 6: Letter -->
+    <!-- Screen 6: Letter (Fixed for Mobile) -->
     <div id="screen6" class="screen">
-        <h2 class="title-cursive" style="font-size: 2rem; color: #ff4d6d;">A VIRTUAL PEACE OFFERING ❤️</h2>
+        <h2 class="title-cursive" style="font-size: 1.8rem; color: #ff4d6d; margin-bottom: 15px;">A VIRTUAL PEACE OFFERING ❤️</h2>
         <div class="letter-card">
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.8rem; color: #b71c1c;">My Dearest Boss,</p>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #b71c1c;">My Dearest Boss,</p>
             <p class="letter-text">I'm really sorry, my love. I accidentally upset the most precious person in my life — you. 🥺<br><br>Raat ko jab tumhe meri sabse zyada zaroorat thi, main paas nahi tha... and I fell asleep. Mujhe sach mein bahut guilt feel ho raha hai. I hate myself for that.</p>
-            <div style="font-size: 3rem; margin: 10px 0;">🧸🎀</div>
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #b71c1c;">Please forgive me? 🥺</p>
+            <div style="font-size: 2.5rem; margin: 10px 0;">🧸🎀</div>
+            <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #b71c1c;">Please forgive me? 🥺</p>
         </div>
-        <button class="btn" style="margin-top: 20px;" onclick="nextScreen('screen7')">Next ➔</button>
+        <button class="btn" style="margin-top: 20px; margin-bottom: 10px;" onclick="nextScreen('screen7')">Next ➔</button>
     </div>
 
     <!-- Screen 7: Forgiveness Meter -->
@@ -325,7 +334,7 @@
         <button class="btn" style="margin-top: 20px;" onclick="nextScreen('screen9')">Next ➔</button>
     </div>
 
-    <!-- Screen 9: Bribes -->
+    <!-- Screen 9: Bribes (Fixed for Mobile) -->
     <div id="screen9" class="screen">
         <div class="bribes-container">
             <div class="bribe-card" onclick="this.classList.toggle('selected')">
@@ -347,7 +356,7 @@
                 <div class="check-mark">✅ Redeemable anytime</div>
             </div>
         </div>
-        <button class="btn" style="margin-top: 20px; width: 100%; max-width: 350px;" onclick="nextScreen('screen10')">ENOUGH BRIBES!</button>
+        <button class="btn" style="margin-top: 15px; width: 100%; max-width: 350px;" onclick="nextScreen('screen10')">ENOUGH BRIBES!</button>
     </div>
 
     <!-- Screen 10: Final Treaty -->
@@ -364,7 +373,7 @@
     </div>
 
     <script>
-        // Floating Hearts Background Generation
+        // Floating Hearts Background
         const heartContainer = document.getElementById('bgHearts');
         const heartEmojis = ['💖', '💕', '💗', '💓', '🌸'];
         setInterval(() => {
@@ -377,17 +386,15 @@
             setTimeout(() => heart.remove(), 6000);
         }, 800);
 
-        // Screen Navigation
         function nextScreen(screenId) {
             document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
         }
 
-        // Forgiveness Meter Logic
         let forgivenessLevel = 0;
         function tapHeart() {
             if (forgivenessLevel < 100) {
-                forgivenessLevel += 25; // 4 taps to reach 100%
+                forgivenessLevel += 25;
                 document.getElementById('meterFill').style.width = forgivenessLevel + '%';
                 document.getElementById('meterText').innerText = forgivenessLevel + '% FORGIVEN';
                 
@@ -401,4 +408,3 @@
     </script>
 </body>
 </html>
-

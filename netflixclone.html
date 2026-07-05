@@ -3,41 +3,33 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<title>LOVEFLIX</title>
 
-    <title>LOVEFLIX ❤️ | Our Love Story</title>
+<link rel="stylesheet"
+href="css/style.css">
 
-    <!-- CSS -->
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-    <link rel="stylesheet"
-          href="css/style.css">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-    <!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@400;500;700&display=swap"
+rel="stylesheet">
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
+    <style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-  <style>
-    /*=====================================
-LOVEFLIX
+        /*=====================================
+LOVEFLIX V2
 STYLE.CSS
 PART 1
 ======================================*/
@@ -46,7 +38,7 @@ PART 1
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 html{
@@ -56,12 +48,14 @@ html{
 body{
 
     background:#141414;
-    color:#fff;
+    color:#ffffff;
     overflow-x:hidden;
 
 }
 
-/* Scrollbar */
+/*=============================
+SCROLLBAR
+=============================*/
 
 ::-webkit-scrollbar{
 
@@ -77,85 +71,213 @@ body{
 
 ::-webkit-scrollbar-thumb{
 
-    background:#e50914;
-    border-radius:20px;
+    background:#E50914;
+
+    border-radius:30px;
 
 }
 
-/*==============================
-LOADER
-===============================*/
+/*=============================
+INTRO SCREEN
+=============================*/
 
-#loader{
+#introScreen{
 
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:100vh;
 
     background:#000;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     z-index:99999;
 
 }
 
-.loader-box h1{
+.introLogo{
 
-    color:#e50914;
-    font-size:70px;
-    font-weight:800;
-    letter-spacing:6px;
+    font-size:95px;
+
+    font-weight:900;
+
+    color:#E50914;
+
+    letter-spacing:8px;
+
+    animation:introZoom 2s ease;
 
 }
 
-/*==============================
-INTRO
-===============================*/
+@keyframes introZoom{
 
-#intro{
+0%{
+
+opacity:0;
+
+transform:scale(.4);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.2);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/*=============================
+PROFILE SCREEN
+=============================*/
+
+#profileScreen{
 
     position:fixed;
 
-    width:100%;
-    height:100vh;
+    inset:0;
 
-    background:#000;
+    background:#141414;
 
     display:flex;
+
+    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
 
-    z-index:99998;
+    z-index:9990;
+
+}
+
+#profileScreen h1{
+
+    font-size:55px;
+
+    margin-bottom:60px;
+
+    font-weight:500;
+
+}
+
+.profiles{
+
+    display:flex;
+
+    gap:40px;
+
+    margin-bottom:60px;
+
+}
+
+.profileCard{
+
+    width:180px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.profileCard:hover{
+
+    transform:scale(1.08);
+
+}
+
+.profileCard img{
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:8px;
+
+    object-fit:cover;
+
+    border:4px solid transparent;
+
+}
+
+.profileCard.active img{
+
+    border-color:#fff;
+
+}
+
+.profileCard h2{
+
+    margin-top:18px;
+
+    color:#d2d2d2;
+
+    font-size:24px;
+
+}
+
+#enterBtn{
+
+    background:#E50914;
+
+    color:white;
+
+    border:none;
+
+    padding:18px 50px;
+
+    font-size:18px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#enterBtn:hover{
+
+    background:#b20710;
+
+    transform:scale(1.05);
+
+}
+
+/*=============================
+MAIN WEBSITE
+=============================*/
+
+#mainSite{
 
     display:none;
 
 }
 
-.intro-logo{
-
-    display:flex;
-    gap:10px;
-
-}
-
-.intro-logo span{
-
-    font-size:60px;
-    color:#e50914;
-    font-weight:700;
-
-}
-
-/*==============================
+/*=============================
 HEADER
-===============================*/
+=============================*/
 
 header{
 
@@ -163,17 +285,11 @@ header{
 
     top:0;
 
+    left:0;
+
     width:100%;
 
-    z-index:999;
-
-    padding:20px 60px;
-
-    transition:.4s;
-
-}
-
-.navbar{
+    padding:18px 60px;
 
     display:flex;
 
@@ -181,41 +297,41 @@ header{
 
     align-items:center;
 
-}
+    z-index:999;
 
-.left{
+    background:linear-gradient(to bottom,
+    rgba(0,0,0,.85),
+    transparent);
 
-    display:flex;
-    align-items:center;
-    gap:40px;
+    transition:.4s;
 
 }
 
 .logo{
 
-    color:#e50914;
+    color:#E50914;
 
-    font-size:34px;
+    font-size:38px;
 
-    font-weight:800;
+    font-weight:900;
+
+    letter-spacing:2px;
 
 }
 
-.left ul{
+nav{
 
     display:flex;
 
-    gap:25px;
-
-    list-style:none;
+    gap:28px;
 
 }
 
-.left ul li a{
-
-    text-decoration:none;
+nav a{
 
     color:white;
+
+    text-decoration:none;
 
     font-size:15px;
 
@@ -223,35 +339,35 @@ header{
 
 }
 
-.left ul li a:hover{
+nav a:hover{
 
     color:#b3b3b3;
 
 }
 
-.right{
+.rightMenu{
 
     display:flex;
 
     align-items:center;
 
-    gap:25px;
+    gap:22px;
 
 }
 
-.right i{
+.rightMenu i{
 
-    font-size:18px;
+    font-size:20px;
 
     cursor:pointer;
 
 }
 
-.profile img{
+.rightMenu img{
 
-    width:38px;
+    width:40px;
 
-    height:38px;
+    height:40px;
 
     border-radius:5px;
 
@@ -259,9 +375,8 @@ header{
 
 }
 
-
-
 /*=====================================
+LOVEFLIX V2
 HERO SECTION
 PART 2
 ======================================*/
@@ -274,13 +389,7 @@ PART 2
 
     height:100vh;
 
-    background:url("../images/banner.jpg");
-
-    background-position:center;
-
-    background-size:cover;
-
-    background-repeat:no-repeat;
+    overflow:hidden;
 
     display:flex;
 
@@ -288,7 +397,7 @@ PART 2
 
 }
 
-.overlay{
+.hero video{
 
     position:absolute;
 
@@ -298,650 +407,80 @@ PART 2
     width:100%;
     height:100%;
 
+    object-fit:cover;
+
+}
+
+.heroOverlay{
+
+    position:absolute;
+
+    inset:0;
+
     background:
+
     linear-gradient(to right,
-    rgba(0,0,0,.95) 20%,
-    rgba(0,0,0,.60) 50%,
-    rgba(0,0,0,.20) 100%),
+    rgba(0,0,0,.92) 18%,
+    rgba(0,0,0,.45) 55%,
+    rgba(0,0,0,.15) 100%),
 
     linear-gradient(to top,
-    #141414 5%,
+    #141414 3%,
     transparent 35%);
 
 }
 
-.hero-content{
+.heroContent{
 
     position:relative;
 
-    z-index:2;
+    z-index:5;
 
     width:650px;
 
     margin-left:70px;
 
+    margin-top:90px;
+
 }
 
-.original{
+.heroContent span{
 
     display:inline-block;
 
-    padding:8px 16px;
+    color:#ffffff;
 
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:30px;
-
-    margin-bottom:20px;
-
-    color:#fff;
+    letter-spacing:4px;
 
     font-size:14px;
 
-    letter-spacing:2px;
+    margin-bottom:18px;
+
+    font-weight:600;
 
 }
 
-.hero-content h1{
+.heroContent h1{
 
-    font-size:74px;
+    font-size:82px;
 
-    line-height:82px;
+    font-weight:900;
 
-    font-weight:800;
+    line-height:85px;
 
     margin-bottom:25px;
 
+    text-transform:uppercase;
+
 }
 
-.hero-content p{
+.heroContent p{
 
     width:90%;
 
-    color:#d2d2d2;
-
-    font-size:18px;
-
-    line-height:33px;
-
-    margin-bottom:30px;
-
-}
-
-.movie-info{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    margin-bottom:35px;
-
-}
-
-.movie-info span{
-
-    padding:7px 18px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.12);
-
-    font-size:14px;
-
-}
-
-.hero-buttons{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-.play-btn{
-
-    background:#fff;
-
-    color:#000;
-
-    border:none;
-
-    padding:15px 38px;
-
-    border-radius:6px;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.play-btn:hover{
-
-    transform:scale(1.06);
-
-    background:#e5e5e5;
-
-}
-
-.info-btn{
-
-    background:rgba(109,109,110,.7);
-
-    color:#fff;
-
-    border:none;
-
-    padding:15px 35px;
-
-    border-radius:6px;
-
-    font-size:17px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.info-btn:hover{
-
-    background:#fff;
-
-    color:#000;
-
-}
-
-.play-btn i,
-
-.info-btn i{
-
-    margin-right:10px;
-
-}
-
-/*==============================
-MOVIE ROWS
-===============================*/
-
-.movie-row{
-
-    margin-top:45px;
-
-    padding:0 60px;
-
-}
-
-.row-title{
-
-    margin-bottom:20px;
-
-}
-
-.row-title h2{
-
-    font-size:26px;
-
-    font-weight:600;
-
-}
-
-.row-container{
-
-    display:flex;
-
-    gap:15px;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    scroll-behavior:smooth;
-
-    padding-bottom:10px;
-
-}
-
-.row-container::-webkit-scrollbar{
-
-    display:none;
-
-}
-
-/*=====================================
-NETFLIX MOVIE CARDS
-PART 3
-======================================*/
-
-.movie-card{
-
-    position:relative;
-
-    min-width:240px;
-
-    height:340px;
-
-    border-radius:8px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    transition:.45s ease;
-
-    flex-shrink:0;
-
-    background:#222;
-
-}
-
-.movie-card img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.45s;
-
-}
-
-.movie-card:hover{
-
-    transform:scale(1.08);
-
-    z-index:20;
-
-}
-
-.movie-card:hover img{
-
-    transform:scale(1.1);
-
-}
-
-/*==============================
-CARD OVERLAY
-===============================*/
-
-.movie-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:0;
-
-    width:100%;
-
-    height:45%;
-
-    background:linear-gradient(to top,
-    rgba(0,0,0,.95),
-    transparent);
-
-}
-
-/*==============================
-CARD INFO
-===============================*/
-
-.movie-card-info{
-
-    position:absolute;
-
-    left:15px;
-
-    bottom:18px;
-
-    z-index:2;
-
-}
-
-.movie-card-info h3{
-
-    font-size:19px;
-
-    margin-bottom:6px;
-
-}
-
-.movie-card-info p{
-
-    font-size:13px;
-
     color:#d6d6d6;
 
-}
-
-/*==============================
-NETFLIX HOVER PANEL
-===============================*/
-
-.movie-card .hover-content{
-
-    position:absolute;
-
-    left:0;
-
-    bottom:0;
-
-    width:100%;
-
-    padding:18px;
-
-    background:#181818;
-
-    opacity:0;
-
-    transform:translateY(30px);
-
-    transition:.35s;
-
-}
-
-.movie-card:hover .hover-content{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-.hover-buttons{
-
-    display:flex;
-
-    gap:12px;
-
-    margin-bottom:15px;
-
-}
-
-.hover-buttons button{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
-
-    border:none;
-
-    cursor:pointer;
-
-    font-size:15px;
-
-    transition:.3s;
-
-}
-
-.hover-buttons button:hover{
-
-    transform:scale(1.1);
-
-}
-
-.hover-buttons .play{
-
-    background:#fff;
-
-    color:#000;
-
-}
-
-.hover-buttons .plus{
-
-    background:#333;
-
-    color:#fff;
-
-}
-
-.hover-buttons .like{
-
-    background:#333;
-
-    color:#fff;
-
-}
-
-/*==============================
-MATCH INFO
-===============================*/
-
-.match-info{
-
-    display:flex;
-
-    gap:10px;
-
-    align-items:center;
-
-    margin-bottom:12px;
-
-}
-
-.match{
-
-    color:#46d369;
-
-    font-size:14px;
-
-    font-weight:600;
-
-}
-
-.age{
-
-    border:1px solid #777;
-
-    padding:2px 7px;
-
-    font-size:12px;
-
-}
-
-.quality{
-
-    border:1px solid #999;
-
-    padding:2px 7px;
-
-    font-size:12px;
-
-}
-
-/*==============================
-GENRES
-===============================*/
-
-.genres{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:8px;
-
-}
-
-.genres span{
-
-    font-size:12px;
-
-    color:#ccc;
-
-}
-
-.genres span::after{
-
-    content:"•";
-
-    margin-left:8px;
-
-}
-
-.genres span:last-child::after{
-
-    display:none;
-
-}
-
-/*==============================
-CONTINUE WATCHING BAR
-===============================*/
-
-.progress{
-
-    position:absolute;
-
-    left:0;
-
-    bottom:0;
-
-    width:100%;
-
-    height:5px;
-
-    background:#3d3d3d;
-
-}
-
-.progress span{
-
-    display:block;
-
-    width:65%;
-
-    height:100%;
-
-    background:#e50914;
-
-}
-
-/*==============================
-ROW HOVER EFFECT
-===============================*/
-
-.row-container:hover .movie-card{
-
-    opacity:.45;
-
-}
-
-.row-container .movie-card:hover{
-
-    opacity:1;
-
-}
-
-/*==============================
-SMOOTH TRANSITION
-===============================*/
-
-.movie-card,
-.movie-card img,
-.movie-card-info,
-.hover-content{
-
-    transition:.4s ease;
-
-}
-
-/*=====================================
-FEATURED DETAILS
-PART 4
-======================================*/
-
-.featured-details{
-
-    width:100%;
-
-    padding:80px 60px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-}
-
-.featured-left{
-
-    width:750px;
-
-}
-
-.featured-tag{
-
-    display:inline-block;
-
-    color:#e50914;
-
-    font-size:15px;
-
-    letter-spacing:3px;
-
-    margin-bottom:20px;
-
-}
-
-.featured-left h2{
-
-    font-size:55px;
-
-    margin-bottom:25px;
-
-}
-
-.featured-meta{
-
-    display:flex;
-
-    gap:18px;
-
-    margin-bottom:30px;
-
-}
-
-.featured-meta span{
-
-    background:#222;
-
-    padding:8px 16px;
-
-    border-radius:30px;
-
-    font-size:14px;
-
-}
-
-.match{
-
-    color:#46d369 !important;
-
-    font-weight:700;
-
-}
-
-.featured-left p{
-
-    color:#d0d0d0;
-
-    font-size:17px;
+    font-size:20px;
 
     line-height:34px;
 
@@ -949,41 +488,435 @@ PART 4
 
 }
 
-.genre-list{
+.heroButtons{
 
     display:flex;
 
-    flex-wrap:wrap;
+    align-items:center;
 
-    gap:12px;
+    gap:18px;
 
 }
 
-.genre-list span{
+.heroButtons button{
 
-    padding:10px 18px;
+    height:55px;
 
-    border-radius:30px;
+    padding:0 35px;
 
-    background:#2a2a2a;
+    border:none;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.play{
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+.play:hover{
+
+    background:#e6e6e6;
+
+    transform:scale(1.05);
+
+}
+
+.info{
+
+    background:rgba(109,109,110,.75);
+
+    color:white;
+
+}
+
+.info:hover{
+
+    background:rgba(255,255,255,.92);
+
+    color:#000;
+
+    transform:scale(1.05);
+
+}
+
+.play i,
+
+.info i{
+
+    margin-right:10px;
+
+}
+
+/*=====================================
+MOVIE SECTION
+======================================*/
+
+.movieSection{
+
+    margin-top:45px;
+
+    padding:0 60px;
+
+}
+
+.sectionTitle{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.movieSlider{
+
+    display:flex;
+
+    gap:14px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-behavior:smooth;
+
+    padding-bottom:12px;
+
+}
+
+.movieSlider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.movieItem{
+
+    position:relative;
+
+    min-width:260px;
+
+    height:380px;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    flex-shrink:0;
+
+}
+
+.movieItem img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.movieItem:hover{
+
+    transform:scale(1.08);
+
+    z-index:20;
+
+}
+
+.movieItem:hover img{
+
+    transform:scale(1.1);
+
+}
+
+.movieOverlay{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:18px;
+
+    background:linear-gradient(to top,
+    rgba(0,0,0,.95),
+    transparent);
+
+}
+
+.movieOverlay h3{
+
+    font-size:20px;
+
+    margin:15px 0 8px;
+
+}
+
+.movieOverlay p{
+
+    color:#d0d0d0;
 
     font-size:14px;
 
 }
 
-/*=====================================
-SEASON DROPDOWN
-======================================*/
+.cardPlay{
 
-.season-section{
+    width:46px;
 
-    padding:0 60px;
+    height:46px;
 
-    margin-top:40px;
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    color:black;
+
+    cursor:pointer;
+
+    transition:.3s;
 
 }
 
-.season-header{
+.cardPlay:hover{
+
+    transform:scale(1.12);
+
+}
+
+.progressBar{
+
+    width:100%;
+
+    height:5px;
+
+    background:#444;
+
+    margin-top:14px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.progressBar span{
+
+    display:block;
+
+    height:100%;
+
+    background:#E50914;
+
+}
+
+/*=====================================
+LOVEFLIX V2
+PART 3
+TOP 10 + MORE LIKE THIS + EPISODES
+======================================*/
+
+/*=========================
+TOP 10
+=========================*/
+
+.top10Section{
+
+    padding:60px;
+
+}
+
+.top10Slider{
+
+    display:flex;
+
+    gap:25px;
+
+    overflow-x:auto;
+
+    padding:20px 0;
+
+}
+
+.top10Slider::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.topCard{
+
+    position:relative;
+
+    min-width:230px;
+
+    height:330px;
+
+    flex-shrink:0;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.topCard:hover{
+
+    transform:scale(1.08);
+
+}
+
+.topCard img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+}
+
+.number{
+
+    position:absolute;
+
+    left:-25px;
+
+    bottom:-35px;
+
+    font-size:180px;
+
+    font-weight:900;
+
+    color:#000;
+
+    -webkit-text-stroke:3px #ffffff;
+
+    line-height:1;
+
+}
+
+/*=========================
+MORE LIKE THIS
+=========================*/
+
+.moreLike{
+
+    padding:20px 60px 70px;
+
+}
+
+.moreGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.moreCard{
+
+    background:#181818;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.moreCard:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.moreCard img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+}
+
+.moreContent{
+
+    padding:20px;
+
+}
+
+.moreContent h3{
+
+    font-size:24px;
+
+    margin-bottom:12px;
+
+}
+
+.moreContent span{
+
+    color:#46d369;
+
+    font-weight:bold;
+
+}
+
+.moreContent p{
+
+    color:#d0d0d0;
+
+    margin-top:15px;
+
+    line-height:28px;
+
+}
+
+/*=========================
+EPISODES
+=========================*/
+
+.episodes{
+
+    padding:40px 60px 80px;
+
+}
+
+.episodeHeader{
 
     display:flex;
 
@@ -995,21 +928,21 @@ SEASON DROPDOWN
 
 }
 
-.season-header h2{
+.episodeHeader h2{
 
     font-size:34px;
 
 }
 
-.season-header select{
+.episodeHeader select{
 
     width:180px;
 
-    height:48px;
+    height:45px;
 
     background:#111;
 
-    color:white;
+    color:#fff;
 
     border:1px solid #444;
 
@@ -1017,55 +950,35 @@ SEASON DROPDOWN
 
     border-radius:5px;
 
-    cursor:pointer;
-
 }
 
-/*=====================================
-EPISODE CARD
-======================================*/
-
-.episode-card{
-
-    width:calc(100% - 120px);
-
-    margin:18px auto;
-
-    background:#1b1b1b;
-
-    border-radius:10px;
+.episodeItem{
 
     display:flex;
 
     align-items:center;
 
-    padding:22px;
+    gap:25px;
 
-    transition:.35s;
+    background:#1a1a1a;
 
-}
+    padding:18px;
 
-.episode-card:hover{
+    border-radius:10px;
 
-    background:#2b2b2b;
+    margin-bottom:18px;
 
-}
-
-.episode-number{
-
-    width:70px;
-
-    text-align:center;
-
-    font-size:40px;
-
-    color:#888;
-
-    font-weight:700;
+    transition:.3s;
 
 }
 
-.episode-card img{
+.episodeItem:hover{
+
+    background:#272727;
+
+}
+
+.episodeItem img{
 
     width:220px;
 
@@ -1077,389 +990,319 @@ EPISODE CARD
 
 }
 
-.episode-content{
+.episodeInfo{
 
     flex:1;
 
-    margin-left:25px;
-
 }
 
-.episode-content h3{
+.episodeInfo h3{
 
     font-size:24px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
-.episode-content span{
+.episodeInfo span{
 
-    color:#bbb;
+    display:block;
 
-    font-size:14px;
+    font-size:18px;
 
-}
-
-.episode-content p{
-
-    color:#cfcfcf;
-
-    line-height:30px;
-
-    margin-top:15px;
+    color:#ffffff;
 
 }
 
-/*=====================================
-EPISODE HOVER
-======================================*/
-
-.episode-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-.episode-card img{
-
-    transition:.35s;
-
-}
-
-/*=====================================
-PLAY ICON
-======================================*/
-
-.episode-card::after{
-
-    content:"▶";
-
-    position:absolute;
-
-    right:40px;
-
-    font-size:28px;
-
-    color:white;
-
-    opacity:.4;
-
-}
-
-.episode-card{
-
-    position:relative;
-
-}
-
-
-/*=====================================
-MORE LIKE THIS
-PART 5
-======================================*/
-
-.more-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-    padding:20px 60px 60px;
-
-}
-
-.more-card{
-
-    background:#181818;
-
-    border-radius:10px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-}
-
-.more-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.45);
-
-}
-
-.more-card img{
-
-    width:100%;
-
-    height:240px;
-
-    object-fit:cover;
-
-    transition:.35s;
-
-}
-
-.more-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-.more-info{
-
-    padding:18px;
-
-}
-
-.more-info h3{
-
-    font-size:22px;
-
-    margin-bottom:10px;
-
-}
-
-.more-info p{
+.episodeInfo p{
 
     color:#cfcfcf;
 
     line-height:28px;
 
-    font-size:15px;
+}
+
+.episodePlay{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#E50914;
+
+    color:#fff;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
 
 }
 
-/*=====================================
-TOP 10 MEMORIES
-======================================*/
+.episodePlay:hover{
 
-.top10-section{
-
-    padding:70px 60px;
+    transform:scale(1.1);
 
 }
 
-.top10-container{
+/*=========================
+FINAL EPISODE
+=========================*/
 
-    display:flex;
+.finalEpisode{
 
-    gap:35px;
+    padding:100px 60px;
 
-    overflow-x:auto;
-
-    padding:20px 0;
-
-}
-
-.top10-container::-webkit-scrollbar{
-
-    display:none;
+    text-align:center;
 
 }
 
-.top-card{
-
-    position:relative;
-
-    min-width:260px;
-
-    height:360px;
-
-    flex-shrink:0;
-
-}
-
-.top-card img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:8px;
-
-    transition:.35s;
-
-}
-
-.top-card:hover img{
-
-    transform:scale(1.05);
-
-}
-
-.rank{
-
-    position:absolute;
-
-    left:-25px;
-
-    bottom:-30px;
-
-    font-size:180px;
-
-    font-weight:900;
-
-    color:#000;
-
-    -webkit-text-stroke:3px #fff;
-
-    z-index:5;
-
-    line-height:1;
-
-    pointer-events:none;
-
-}
-
-/*=====================================
-LOVE LETTER
-======================================*/
-
-.love-letter{
-
-    padding:90px 60px;
-
-}
-
-.letter-box{
+.finalBox{
 
     max-width:900px;
 
     margin:auto;
 
-    background:#1b1b1b;
+    background:#181818;
 
-    border-radius:16px;
+    padding:60px;
 
-    padding:50px;
-
-    text-align:center;
-
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
 
 }
 
-.letter-box h2{
+.loveflixOriginal{
 
-    font-size:40px;
+    color:#E50914;
 
-    margin-bottom:25px;
+    letter-spacing:4px;
+
+    font-size:14px;
 
 }
 
-.letter-box p{
+.finalBox h1{
 
-    color:#d6d6d6;
+    font-size:65px;
 
-    font-size:18px;
+    margin:25px 0;
+
+}
+
+.finalBox p{
+
+    color:#d5d5d5;
 
     line-height:34px;
 
-    margin-bottom:25px;
-
-}
-
-/*=====================================
-FINAL SECTION
-======================================*/
-
-.ending{
-
-    padding:100px 20px;
-
-    text-align:center;
-
-}
-
-.ending h1{
-
-    font-size:60px;
-
-    margin-bottom:20px;
-
-}
-
-.ending h3{
-
-    font-size:28px;
-
-    color:#d2d2d2;
+    font-size:19px;
 
     margin-bottom:40px;
 
 }
 
-#proposalBtn{
+#proposalEpisode{
 
-    background:#e50914;
+    background:#E50914;
 
-    color:#fff;
+    color:white;
 
     border:none;
 
     padding:18px 45px;
 
-    font-size:18px;
-
-    border-radius:8px;
+    border-radius:6px;
 
     cursor:pointer;
+
+    font-size:20px;
 
     transition:.35s;
 
 }
 
-#proposalBtn:hover{
+#proposalEpisode:hover{
+
+    transform:scale(1.05);
 
     background:#b20710;
-
-    transform:scale(1.06);
 
 }
 
 /*=====================================
-FOOTER
+LOVEFLIX V2
+PART 4
+MODALS + FOOTER + RESPONSIVE
 ======================================*/
 
-footer{
+/*=========================
+VIDEO MODAL
+=========================*/
+
+#videoModal,
+#letterModal,
+#proposalModal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.88);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.videoContainer{
+
+    width:90%;
+    max-width:1200px;
+
+    position:relative;
+
+}
+
+#loveVideo{
+
+    width:100%;
+    border-radius:10px;
+    background:#000;
+
+}
+
+#closeVideo,
+#closeLetter{
+
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#E50914;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    z-index:2;
+
+}
+
+/*=========================
+LOVE LETTER
+=========================*/
+
+.letterContent{
+
+    width:90%;
+    max-width:850px;
+
+    background:#181818;
+
+    border-radius:15px;
 
     padding:60px;
 
-    background:#0b0b0b;
+    position:relative;
+
+    animation:popup .35s ease;
+
+}
+
+.letterContent span{
+
+    color:#E50914;
+
+    letter-spacing:3px;
+
+}
+
+.letterContent h1{
+
+    font-size:48px;
+
+    margin:25px 0;
+
+}
+
+.letterContent p{
+
+    color:#d5d5d5;
+
+    font-size:18px;
+
+    line-height:34px;
+
+    margin-bottom:20px;
+
+}
+
+/*=========================
+PROPOSAL POPUP
+=========================*/
+
+.proposalContent{
+
+    width:90%;
+    max-width:650px;
+
+    background:#181818;
+
+    border-radius:16px;
 
     text-align:center;
 
-}
+    padding:60px;
 
-.footer-content h2{
-
-    color:#e50914;
-
-    font-size:40px;
-
-    margin-bottom:15px;
+    animation:popup .35s ease;
 
 }
 
-.footer-content p{
+.proposalContent h1{
 
-    color:#bdbdbd;
-
-    margin-bottom:25px;
-
-    line-height:30px;
+    font-size:90px;
 
 }
 
-.social-icons{
+.proposalContent h2{
+
+    font-size:42px;
+
+    margin:20px 0;
+
+}
+
+.proposalContent p{
+
+    color:#d5d5d5;
+
+    line-height:32px;
+
+    margin-bottom:35px;
+
+}
+
+.proposalButtons{
 
     display:flex;
 
@@ -1467,15 +1310,133 @@ footer{
 
     gap:20px;
 
-    margin-bottom:25px;
+}
+
+.proposalButtons button{
+
+    width:170px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
 
 }
 
-.social-icons i{
+#yesBtn{
 
-    width:45px;
+    background:#E50914;
 
-    height:45px;
+    color:#fff;
+
+}
+
+#yesBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+#noBtn{
+
+    background:#333;
+
+    color:white;
+
+}
+
+#noBtn:hover{
+
+    background:#555;
+
+}
+
+/*=========================
+FOOTER
+=========================*/
+
+footer{
+
+    background:#111;
+
+    padding:70px 60px;
+
+    text-align:center;
+
+}
+
+.footerTop h2{
+
+    color:#E50914;
+
+    font-size:45px;
+
+    margin-bottom:15px;
+
+}
+
+.footerTop p{
+
+    color:#bdbdbd;
+
+    margin-bottom:35px;
+
+}
+
+.footerLinks{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.footerLinks a{
+
+    color:#9d9d9d;
+
+    text-decoration:none;
+
+}
+
+.footerLinks a:hover{
+
+    color:white;
+
+}
+
+.footerSocial{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+.footerSocial i{
+
+    width:48px;
+
+    height:48px;
 
     border-radius:50%;
 
@@ -1489,106 +1450,57 @@ footer{
 
     cursor:pointer;
 
-    transition:.35s;
-
-    font-size:18px;
+    transition:.3s;
 
 }
 
-.social-icons i:hover{
+.footerSocial i:hover{
 
-    background:#e50914;
+    background:#E50914;
 
     transform:translateY(-5px);
 
 }
 
-.footer-content span{
+.copyright{
 
-    color:#888;
+    color:#777;
 
     font-size:14px;
 
 }
 
-/*=====================================
-RESPONSIVE DESIGN
-PART 6
-======================================*/
+/*=========================
+POPUP ANIMATION
+=========================*/
 
-/*===============
-Laptop
-================*/
+@keyframes popup{
 
-@media(max-width:1400px){
+    from{
 
-.hero-content{
+        opacity:0;
 
-    width:550px;
+        transform:scale(.8);
 
-}
+    }
 
-.hero-content h1{
+    to{
 
-    font-size:62px;
+        opacity:1;
 
-    line-height:72px;
+        transform:scale(1);
 
-}
-
-.movie-card{
-
-    min-width:210px;
-    height:300px;
+    }
 
 }
 
-.top-card{
+/*=========================
+RESPONSIVE
+=========================*/
 
-    min-width:230px;
-    height:320px;
+@media(max-width:992px){
 
-}
-
-.rank{
-
-    font-size:150px;
-
-}
-
-}
-
-/*===============
-Tablet
-================*/
-
-@media(max-width:1024px){
-
-header{
-
-    padding:18px 30px;
-
-}
-
-.left{
-
-    gap:25px;
-
-}
-
-.left ul{
-
-    gap:15px;
-
-}
-
-.hero{
-
-    height:90vh;
-
-}
-
-.hero-content{
+.heroContent{
 
     width:90%;
 
@@ -1596,87 +1508,44 @@ header{
 
 }
 
-.hero-content h1{
+.heroContent h1{
 
-    font-size:52px;
+    font-size:58px;
 
-    line-height:60px;
-
-}
-
-.hero-content p{
-
-    width:100%;
+    line-height:65px;
 
 }
 
-.movie-row{
-
-    padding:0 30px;
-
-}
-
-.featured-details{
-
-    padding:60px 30px;
-
-}
-
-.season-section{
-
-    padding:0 30px;
-
-}
-
-.more-grid{
+.moreGrid{
 
     grid-template-columns:repeat(2,1fr);
 
-    padding:20px 30px 50px;
-
 }
-
-.top10-section{
-
-    padding:60px 30px;
-
-}
-
-.love-letter{
-
-    padding:70px 30px;
-
-}
-
-footer{
-
-    padding:50px 30px;
-
-}
-
-}
-
-/*===============
-Mobile
-================*/
-
-@media(max-width:768px){
 
 header{
 
-    padding:15px 20px;
+    padding:18px 30px;
 
 }
 
-.left ul{
+.movieSection,
+.top10Section,
+.moreLike,
+.episodes,
+.finalEpisode{
+
+    padding-left:30px;
+    padding-right:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
 
     display:none;
-
-}
-
-.logo{
-
-    font-size:28px;
 
 }
 
@@ -1686,39 +1555,31 @@ header{
 
 }
 
-.hero-content{
+.heroContent{
 
     margin-left:20px;
 
-    width:90%;
+    margin-top:60px;
 
 }
 
-.hero-content h1{
+.heroContent h1{
 
-    font-size:40px;
+    font-size:42px;
 
     line-height:48px;
 
 }
 
-.hero-content p{
+.heroContent p{
 
-    font-size:15px;
+    width:100%;
 
-    line-height:28px;
-
-}
-
-.movie-info{
-
-    flex-wrap:wrap;
-
-    gap:10px;
+    font-size:16px;
 
 }
 
-.hero-buttons{
+.heroButtons{
 
     flex-direction:column;
 
@@ -1726,159 +1587,13 @@ header{
 
 }
 
-.play-btn,
-
-.info-btn{
+.heroButtons button{
 
     width:220px;
 
 }
 
-.movie-row{
-
-    padding:0 20px;
-
-}
-
-.row-title h2{
-
-    font-size:22px;
-
-}
-
-.movie-card{
-
-    min-width:170px;
-
-    height:250px;
-
-}
-
-.more-grid{
-
-    grid-template-columns:1fr;
-
-}
-
-.episode-card{
-
-    width:95%;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-}
-
-.episode-number{
-
-    margin-bottom:15px;
-
-}
-
-.episode-card img{
-
-    width:100%;
-    height:220px;
-
-}
-
-.episode-content{
-
-    margin-left:0;
-    margin-top:20px;
-
-}
-
-.featured-left{
-
-    width:100%;
-
-}
-
-.featured-left h2{
-
-    font-size:38px;
-
-}
-
-.letter-box{
-
-    padding:30px;
-
-}
-
-.letter-box h2{
-
-    font-size:30px;
-
-}
-
-.letter-box p{
-
-    font-size:16px;
-
-    line-height:30px;
-
-}
-
-.ending h1{
-
-    font-size:42px;
-
-}
-
-.ending h3{
-
-    font-size:22px;
-
-}
-
-.rank{
-
-    font-size:120px;
-
-    left:-15px;
-
-}
-
-}
-
-/*===============
-Small Mobile
-================*/
-
-@media(max-width:480px){
-
-.hero{
-
-    height:80vh;
-
-}
-
-.hero-content h1{
-
-    font-size:34px;
-
-    line-height:42px;
-
-}
-
-.hero-content p{
-
-    font-size:14px;
-
-}
-
-.movie-card{
-
-    min-width:145px;
-
-    height:215px;
-
-}
-
-.top-card{
+.movieItem{
 
     min-width:180px;
 
@@ -1886,101 +1601,165 @@ Small Mobile
 
 }
 
-.rank{
+.moreGrid{
 
-    font-size:95px;
+    grid-template-columns:1fr;
 
 }
 
-.play-btn,
+.episodeItem{
 
-.info-btn{
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+.episodeItem img{
+
+    width:100%;
+
+    height:220px;
+
+}
+
+.finalBox{
+
+    padding:35px;
+
+}
+
+.finalBox h1{
+
+    font-size:45px;
+
+}
+
+.footerLinks{
+
+    flex-direction:column;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.logo{
+
+    font-size:30px;
+
+}
+
+.heroContent h1{
+
+    font-size:34px;
+
+    line-height:40px;
+
+}
+
+.heroContent p{
+
+    font-size:15px;
+
+}
+
+.sectionTitle{
+
+    font-size:22px;
+
+}
+
+.movieItem{
+
+    min-width:150px;
+
+    height:220px;
+
+}
+
+.proposalButtons{
+
+    flex-direction:column;
+
+}
+
+.proposalButtons button{
 
     width:100%;
 
 }
 
-.footer-content h2{
+    }
+        
+    </style>
 
-    font-size:32px;
-
-}
-
-.social-icons{
-
-    flex-wrap:wrap;
-
-}
-
-  }
-  </style>
 </head>
 
 <body>
 
-<!--==================================
-LOADING SCREEN
-===================================-->
+<!--=========================
+INTRO SCREEN
+==========================-->
 
-<div id="loader">
+<section id="introScreen">
 
-    <div class="loader-box">
+<div class="introLogo">
 
-        <h1>
-
-            LOVEFLIX
-
-        </h1>
-
-    </div>
+LOVEFLIX
 
 </div>
 
-<!--==================================
-NETFLIX INTRO
-===================================-->
+</section>
 
-<section id="intro">
+<!--=========================
+PROFILE SCREEN
+==========================-->
 
-    <div class="intro-logo">
+<section id="profileScreen">
 
-        <span>L</span>
+<h1>
 
-        <span>O</span>
+Who's Watching?
 
-        <span>V</span>
+</h1>
 
-        <span>E</span>
+<div class="profiles">
 
-        <span>F</span>
+<div class="profileCard active">
 
-        <span>L</span>
+<img src="images/profile.jpg">
 
-        <span>I</span>
+<h2>
 
-        <span>X</span>
+My Queen ❤️
 
-    </div>
+</h2>
+
+</div>
+
+</div>
+
+<button id="enterBtn">
+
+ENTER LOVEFLIX
+
+</button>
 
 </section>
 
-<!--==================================
+<!--=========================
 MAIN WEBSITE
-===================================-->
+==========================-->
 
-<div id="website">
+<div id="mainSite">
 
-<!--==================================
+<!--=========================
 HEADER
-===================================-->
+==========================-->
 
 <header>
-
-<div class="navbar">
-
-<!-- LEFT SIDE -->
-
-<div class="left">
 
 <div class="logo">
 
@@ -1988,94 +1767,55 @@ LOVEFLIX
 
 </div>
 
-<ul>
+<nav>
 
-<li>
+<a href="#">Home</a>
 
-<a href="#">
+<a href="#">Series</a>
 
-Home
+<a href="#">Movies</a>
 
-</a>
+<a href="#">New & Popular</a>
 
-</li>
+<a href="#">My List</a>
 
-<li>
+</nav>
 
-<a href="#">
-
-TV Shows
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#">
-
-Movies
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#">
-
-New & Popular
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#">
-
-My List
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-<!-- RIGHT SIDE -->
-
-<div class="right">
+<div class="rightMenu">
 
 <i class="fa-solid fa-magnifying-glass"></i>
 
 <i class="fa-solid fa-bell"></i>
 
-<div class="profile">
-
-<img src="images/profile.jpg"
-     alt="Profile">
-
-</div>
-
-</div>
+<img src="images/profile.jpg">
 
 </div>
 
 </header>
 
-<!--==================================
-HERO SECTION
-===================================-->
+<!--=========================
+HERO
+==========================-->
 
 <section class="hero">
 
-<div class="overlay"></div>
+<video
+autoplay
+muted
+loop
+playsinline>
 
-<div class="hero-content">
+<source
+src="videos/banner.mp4"
+type="video/mp4">
 
-<span class="original">
+</video>
+
+<div class="heroOverlay"></div>
+
+<div class="heroContent">
+
+<span>
 
 LOVEFLIX ORIGINAL
 
@@ -2083,61 +1823,21 @@ LOVEFLIX ORIGINAL
 
 <h1>
 
-A Story
-
-<br>
-
-Of My Love ❤️
+OUR LOVE STORY
 
 </h1>
 
 <p>
 
-Some love stories are written in books.
-
-Ours is written in memories,
-
-photos,
-
-late-night calls,
-
-countless smiles,
-
-and endless love.
+Every episode reminds me
+how lucky I am
+to have you.
 
 </p>
 
-<div class="movie-info">
+<div class="heroButtons">
 
-<span>
-
-2026
-
-</span>
-
-<span>
-
-Romance
-
-</span>
-
-<span>
-
-6 Episodes
-
-</span>
-
-<span>
-
-HD
-
-</span>
-
-</div>
-
-<div class="hero-buttons">
-
-<button class="play-btn">
+<button class="play">
 
 <i class="fa-solid fa-play"></i>
 
@@ -2145,7 +1845,7 @@ Play
 
 </button>
 
-<button class="info-btn">
+<button class="info">
 
 <i class="fa-solid fa-circle-info"></i>
 
@@ -2163,130 +1863,181 @@ More Info
 CONTINUE WATCHING
 ===================================-->
 
-<section class="movie-row">
+<section class="movieSection">
 
-    <div class="row-title">
+    <h2 class="sectionTitle">
 
-        <h2>
+        Continue Watching For My Queen ❤️
 
-            Continue Watching
+    </h2>
 
-        </h2>
+    <div class="movieSlider">
 
-    </div>
+        <div class="movieItem">
 
-    <div class="row-container">
+            <img src="images/poster1.jpg">
 
-        <div class="movie-card">
+            <div class="movieOverlay">
 
-            <img src="images/poster1.jpg"
-                 alt="Episode 1">
+                <button class="cardPlay">
 
-            <div class="movie-card-info">
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
 
                 <h3>
-
-                    Episode 1
-
-                </h3>
-
-                <p>
 
                     The First Hello ❤️
 
+                </h3>
+
+                <p>
+
+                    Episode 1 • 98% Match
+
                 </p>
+
+                <div class="progressBar">
+
+                    <span style="width:72%"></span>
+
+                </div>
 
             </div>
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
-            <img src="images/poster2.jpg"
-                 alt="Episode 2">
+            <img src="images/poster2.jpg">
 
-            <div class="movie-card-info">
+            <div class="movieOverlay">
+
+                <button class="cardPlay">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
 
                 <h3>
 
-                    Episode 2
+                    First Date 🌹
 
                 </h3>
 
                 <p>
+
+                    Episode 2 • 100% Match
+
+                </p>
+
+                <div class="progressBar">
+
+                    <span style="width:40%"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="movieItem">
+
+            <img src="images/poster3.jpg">
+
+            <div class="movieOverlay">
+
+                <button class="cardPlay">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
+
+                <h3>
 
                     Late Night Calls 🌙
 
+                </h3>
+
+                <p>
+
+                    Episode 3 • HD
+
                 </p>
+
+                <div class="progressBar">
+
+                    <span style="width:88%"></span>
+
+                </div>
 
             </div>
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
-            <img src="images/poster3.jpg"
-                 alt="Episode 3">
+            <img src="images/poster4.jpg">
 
-            <div class="movie-card-info">
+            <div class="movieOverlay">
 
-                <h3>
+                <button class="cardPlay">
 
-                    Episode 3
+                    <i class="fa-solid fa-play"></i>
 
-                </h3>
-
-                <p>
-
-                    Our First Date 🌹
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/poster4.jpg"
-                 alt="Episode 4">
-
-            <div class="movie-card-info">
+                </button>
 
                 <h3>
-
-                    Episode 4
-
-                </h3>
-
-                <p>
 
                     Birthday Surprise 🎂
 
+                </h3>
+
+                <p>
+
+                    Episode 4 • Romance
+
                 </p>
+
+                <div class="progressBar">
+
+                    <span style="width:65%"></span>
+
+                </div>
 
             </div>
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
-            <img src="images/poster5.jpg"
-                 alt="Episode 5">
+            <img src="images/poster5.jpg">
 
-            <div class="movie-card-info">
+            <div class="movieOverlay">
+
+                <button class="cardPlay">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
 
                 <h3>
 
-                    Episode 5
+                    Forever Together 💍
 
                 </h3>
 
                 <p>
 
-                    Endless Memories ✨
+                    Final Episode
 
                 </p>
+
+                <div class="progressBar">
+
+                    <span style="width:100%"></span>
+
+                </div>
 
             </div>
 
@@ -2300,99 +2051,49 @@ CONTINUE WATCHING
 TRENDING NOW
 ===================================-->
 
-<section class="movie-row">
+<section class="movieSection">
 
-    <div class="row-title">
+    <h2 class="sectionTitle">
 
-        <h2>
+        Trending Now 🔥
 
-            Trending Now
+    </h2>
 
-        </h2>
+    <div class="movieSlider">
 
-    </div>
-
-    <div class="row-container">
-
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/trending1.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/trending2.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/trending3.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/trending4.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/trending5.jpg">
 
         </div>
 
-    </div>
+        <div class="movieItem">
 
-</section>
-
-<!--==================================
-TOP PICKS FOR YOU
-===================================-->
-
-<section class="movie-row">
-
-    <div class="row-title">
-
-        <h2>
-
-            Top Picks For You ❤️
-
-        </h2>
-
-    </div>
-
-    <div class="row-container">
-
-        <div class="movie-card">
-
-            <img src="images/top1.jpg">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/top2.jpg">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/top3.jpg">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/top4.jpg">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/top5.jpg">
+            <img src="images/trending6.jpg">
 
         </div>
 
@@ -2404,689 +2105,49 @@ TOP PICKS FOR YOU
 ONLY ON LOVEFLIX
 ===================================-->
 
-<section class="movie-row">
+<section class="movieSection">
 
-    <div class="row-title">
+    <h2 class="sectionTitle">
 
-        <h2>
+        Only On LOVEFLIX ❤️
 
-            Only On LOVEFLIX
+    </h2>
 
-        </h2>
+    <div class="movieSlider">
 
-    </div>
-
-    <div class="row-container">
-
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/love1.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/love2.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/love3.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/love4.jpg">
 
         </div>
 
-        <div class="movie-card">
+        <div class="movieItem">
 
             <img src="images/love5.jpg">
 
         </div>
 
-    </div>
+        <div class="movieItem">
 
-</section>
-
-<!--==================================
-FEATURED DETAILS
-===================================-->
-
-<section class="featured-details">
-
-    <div class="featured-left">
-
-        <span class="featured-tag">
-
-            LOVEFLIX ORIGINAL SERIES
-
-        </span>
-
-        <h2>
-
-            Our Beautiful Journey ❤️
-
-        </h2>
-
-        <div class="featured-meta">
-
-            <span class="match">
-
-                ❤ 100% Match
-
-            </span>
-
-            <span>2026</span>
-
-            <span>6 Episodes</span>
-
-            <span>HD</span>
-
-        </div>
-
-        <p>
-
-            This isn't just another series.
-
-            It's a collection of our happiest memories,
-            beautiful moments,
-            silly fights,
-            late-night calls,
-            endless laughter,
-            and the love that keeps growing every single day.
-
-        </p>
-
-        <div class="genre-list">
-
-            <span>Romance</span>
-
-            <span>Comedy</span>
-
-            <span>Drama</span>
-
-            <span>Forever</span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!--==================================
-SEASON SELECTOR
-===================================-->
-
-<section class="season-section">
-
-    <div class="season-header">
-
-        <h2>
-
-            Episodes
-
-        </h2>
-
-        <select>
-
-            <option>
-
-                Season 1
-
-            </option>
-
-            <option>
-
-                Season 2
-
-            </option>
-
-            <option>
-
-                Season 3
-
-            </option>
-
-            <option>
-
-                Season 4
-
-            </option>
-
-            <option>
-
-                Season 5
-
-            </option>
-
-        </select>
-
-    </div>
-
-</section>
-
-<!--==================================
-EPISODE 1
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        1
-
-    </div>
-
-    <img src="images/episode1.jpg">
-
-    <div class="episode-content">
-
-        <h3>
-
-            The First Hello ❤️
-
-        </h3>
-
-        <span>
-
-            18 min
-
-        </span>
-
-        <p>
-
-            The day everything started.
-
-            A simple hello changed our lives forever.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-EPISODE 2
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        2
-
-    </div>
-
-    <img src="images/episode2.jpg">
-
-    <div class="episode-content">
-
-        <h3>
-
-            Our First Date 🌹
-
-        </h3>
-
-        <span>
-
-            22 min
-
-        </span>
-
-        <p>
-
-            Nervous smiles,
-            unforgettable conversations,
-            and the beginning of countless memories.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-EPISODE 3
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        3
-
-    </div>
-
-    <img src="images/episode3.jpg">
-
-    <div class="episode-content">
-
-        <h3>
-
-            Late Night Calls 🌙
-
-        </h3>
-
-        <span>
-
-            20 min
-
-        </span>
-
-        <p>
-
-            Distance never mattered because
-            our hearts were always together.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-EPISODE 4
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        4
-
-    </div>
-
-    <img src="images/episode4.jpg">
-
-    <div class="episode-content">
-
-        <h3>
-
-            Birthday Surprise 🎂
-
-        </h3>
-
-        <span>
-
-            25 min
-
-        </span>
-
-        <p>
-
-            One of the happiest days filled
-            with surprises,
-            smiles,
-            hugs,
-            and love.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-EPISODE 5
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        5
-
-    </div>
-
-    <img src="images/episode5.jpg"
-         alt="Episode 5">
-
-    <div class="episode-content">
-
-        <h3>
-
-            The Beautiful Memories ✨
-
-        </h3>
-
-        <span>
-
-            24 min
-
-        </span>
-
-        <p>
-
-            Every photo tells a story.
-            Every story reminds me how lucky
-            I am to have you.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-EPISODE 6
-===================================-->
-
-<div class="episode-card">
-
-    <div class="episode-number">
-
-        6
-
-    </div>
-
-    <img src="images/episode6.jpg"
-         alt="Episode 6">
-
-    <div class="episode-content">
-
-        <h3>
-
-            Forever Together ❤️
-
-        </h3>
-
-        <span>
-
-            Final Episode
-
-        </span>
-
-        <p>
-
-            Every ending becomes
-            a new beginning when
-            I'm with you.
-
-        </p>
-
-    </div>
-
-</div>
-
-<!--==================================
-MORE LIKE THIS
-===================================-->
-
-<section class="movie-row">
-
-    <div class="row-title">
-
-        <h2>
-
-            More Like This
-
-        </h2>
-
-    </div>
-
-    <div class="more-grid">
-
-        <div class="more-card">
-
-            <img src="images/more1.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Our Selfies ❤️
-
-                </h3>
-
-                <p>
-
-                    Every smile has
-                    a beautiful memory.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="more-card">
-
-            <img src="images/more2.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Date Nights 🌹
-
-                </h3>
-
-                <p>
-
-                    Nights we'll never
-                    forget.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="more-card">
-
-            <img src="images/more3.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Cute Moments 🥰
-
-                </h3>
-
-                <p>
-
-                    Little moments,
-                    biggest happiness.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="more-card">
-
-            <img src="images/more4.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Adventures ✈️
-
-                </h3>
-
-                <p>
-
-                    Every place
-                    became special
-                    because you were there.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="more-card">
-
-            <img src="images/more5.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Future Dreams 💍
-
-                </h3>
-
-                <p>
-
-                    The best chapters
-                    are still waiting.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="more-card">
-
-            <img src="images/more6.jpg"
-                 alt="">
-
-            <div class="more-info">
-
-                <h3>
-
-                    Forever ❤️
-
-                </h3>
-
-                <p>
-
-                    One love.
-                    One story.
-                    Forever us.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!--==================================
-BECAUSE YOU WATCHED
-===================================-->
-
-<section class="movie-row">
-
-    <div class="row-title">
-
-        <h2>
-
-            Because You Loved Her ❤️
-
-        </h2>
-
-    </div>
-
-    <div class="row-container">
-
-        <div class="movie-card">
-
-            <img src="images/recommend1.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/recommend2.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/recommend3.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/recommend4.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/recommend5.jpg"
-                 alt="">
-
-        </div>
-
-    </div>
-
-</section>
-
-<!--==================================
-MY LIST
-===================================-->
-
-<section class="movie-row">
-
-    <div class="row-title">
-
-        <h2>
-
-            My List ❤️
-
-        </h2>
-
-    </div>
-
-    <div class="row-container">
-
-        <div class="movie-card">
-
-            <img src="images/list1.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/list2.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/list3.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/list4.jpg"
-                 alt="">
-
-        </div>
-
-        <div class="movie-card">
-
-            <img src="images/list5.jpg"
-                 alt="">
+            <img src="images/love6.jpg">
 
         </div>
 
@@ -3098,57 +2159,53 @@ MY LIST
 TOP 10 MEMORIES
 ===================================-->
 
-<section class="top10-section">
+<section class="top10Section">
 
-    <div class="row-title">
+    <h2 class="sectionTitle">
 
-        <h2>
+        Top 10 Memories In India Today ❤️
 
-            Top 10 Memories ❤️
+    </h2>
 
-        </h2>
+    <div class="top10Slider">
 
-    </div>
+        <div class="topCard">
 
-    <div class="top10-container">
+            <span class="number">1</span>
 
-        <div class="top-card">
-
-            <span class="rank">1</span>
-
-            <img src="images/top10-1.jpg">
+            <img src="images/top1.jpg">
 
         </div>
 
-        <div class="top-card">
+        <div class="topCard">
 
-            <span class="rank">2</span>
+            <span class="number">2</span>
 
-            <img src="images/top10-2.jpg">
-
-        </div>
-
-        <div class="top-card">
-
-            <span class="rank">3</span>
-
-            <img src="images/top10-3.jpg">
+            <img src="images/top2.jpg">
 
         </div>
 
-        <div class="top-card">
+        <div class="topCard">
 
-            <span class="rank">4</span>
+            <span class="number">3</span>
 
-            <img src="images/top10-4.jpg">
+            <img src="images/top3.jpg">
 
         </div>
 
-        <div class="top-card">
+        <div class="topCard">
 
-            <span class="rank">5</span>
+            <span class="number">4</span>
 
-            <img src="images/top10-5.jpg">
+            <img src="images/top4.jpg">
+
+        </div>
+
+        <div class="topCard">
+
+            <span class="number">5</span>
+
+            <img src="images/top5.jpg">
 
         </div>
 
@@ -3157,73 +2214,206 @@ TOP 10 MEMORIES
 </section>
 
 <!--==================================
-LOVE LETTER
+MORE LIKE THIS
 ===================================-->
 
-<section class="love-letter">
+<section class="moreLike">
 
-    <div class="letter-box">
+    <h2 class="sectionTitle">
 
-        <h2>
+        More Like This 💕
 
-            A Letter For You 💌
+    </h2>
 
-        </h2>
+    <div class="moreGrid">
 
-        <p>
+        <div class="moreCard">
 
-            If I had to choose
-            one place in the whole world,
-            I would always choose
-            wherever you are.
+            <img src="images/more1.jpg">
 
-            Thank you for every smile,
-            every laugh,
-            every memory,
-            every hug,
-            and every little moment
-            that made my life beautiful.
+            <div class="moreContent">
 
-        </p>
+                <h3>Our Selfies ❤️</h3>
 
-        <p>
+                <span>98% Match</span>
 
-            This website isn't just made
-            with HTML, CSS and JavaScript.
+                <p>
 
-            It's made with every heartbeat
-            that whispers your name.
+                    Every picture reminds me
+                    why I fell in love with you.
 
-        </p>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="moreCard">
+
+            <img src="images/more2.jpg">
+
+            <div class="moreContent">
+
+                <h3>Beautiful Days 🌸</h3>
+
+                <span>100% Match</span>
+
+                <p>
+
+                    Happiness looks exactly
+                    like your smile.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="moreCard">
+
+            <img src="images/more3.jpg">
+
+            <div class="moreContent">
+
+                <h3>Forever Together 💍</h3>
+
+                <span>New Episode</span>
+
+                <p>
+
+                    The story that never ends.
+
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 <!--==================================
-FINAL MESSAGE
+EPISODES
 ===================================-->
 
-<section class="ending">
+<section class="episodes">
 
-    <div class="ending-content">
+    <div class="episodeHeader">
 
-        <h1>
+        <h2>
 
-            To Be Continued...
+            Episodes
 
-        </h1>
+        </h2>
 
-        <h3>
+        <select>
 
-            Our Best Episodes
-            Are Yet To Come ❤️
+            <option>Season 1</option>
+            <option>Season 2</option>
+            <option>Season 3</option>
 
-        </h3>
+        </select>
 
-        <button id="proposalBtn">
+    </div>
 
-            Open Final Episode 💍
+    <div class="episodeItem">
+
+        <img src="images/episode1.jpg">
+
+        <div class="episodeInfo">
+
+            <h3>
+
+                Episode 1
+
+                <span>
+
+                    The First Hello ❤️
+
+                </span>
+
+            </h3>
+
+            <p>
+
+                The day our story started.
+
+            </p>
+
+        </div>
+
+        <button class="episodePlay">
+
+            <i class="fa-solid fa-play"></i>
+
+        </button>
+
+    </div>
+
+    <div class="episodeItem">
+
+        <img src="images/episode2.jpg">
+
+        <div class="episodeInfo">
+
+            <h3>
+
+                Episode 2
+
+                <span>
+
+                    First Date 🌹
+
+                </span>
+
+            </h3>
+
+            <p>
+
+                One unforgettable day.
+
+            </p>
+
+        </div>
+
+        <button class="episodePlay">
+
+            <i class="fa-solid fa-play"></i>
+
+        </button>
+
+    </div>
+
+    <div class="episodeItem">
+
+        <img src="images/episode3.jpg">
+
+        <div class="episodeInfo">
+
+            <h3>
+
+                Episode 3
+
+                <span>
+
+                    Forever Us 💕
+
+                </span>
+
+            </h3>
+
+            <p>
+
+                My favourite chapter.
+
+            </p>
+
+        </div>
+
+        <button class="episodePlay">
+
+            <i class="fa-solid fa-play"></i>
 
         </button>
 
@@ -3232,12 +2422,187 @@ FINAL MESSAGE
 </section>
 
 <!--==================================
+SECRET EPISODE
+===================================-->
+
+<section class="finalEpisode">
+
+    <div class="finalBox">
+
+        <span class="loveflixOriginal">
+
+            LOVEFLIX ORIGINAL
+
+        </span>
+
+        <h1>
+
+            Final Episode 💍
+
+        </h1>
+
+        <p>
+
+            If you've watched every episode...
+
+            there's only one question left.
+
+        </p>
+
+        <button id="proposalEpisode">
+
+            ❤️ Play Final Episode
+
+        </button>
+
+    </div>
+
+</section>
+
+<!--==================================
+VIDEO PLAYER MODAL
+===================================-->
+
+<div id="videoModal">
+
+    <div class="videoContainer">
+
+        <button id="closeVideo">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <video
+        id="loveVideo"
+        controls
+        poster="images/video-poster.jpg">
+
+            <source
+            src="videos/our-story.mp4"
+            type="video/mp4">
+
+        </video>
+
+    </div>
+
+</div>
+
+<!--==================================
+LOVE LETTER MODAL
+===================================-->
+
+<div id="letterModal">
+
+    <div class="letterContent">
+
+        <button id="closeLetter">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <span>
+
+            LOVEFLIX ORIGINAL
+
+        </span>
+
+        <h1>
+
+            A Letter To My Love ❤️
+
+        </h1>
+
+        <p>
+
+            Every episode on this website is just a small part of our story.
+
+            Every smile of yours became my favourite memory.
+
+            Every late-night call became my favourite soundtrack.
+
+            Every photo became my favourite scene.
+
+            Every moment with you became my favourite episode.
+
+        </p>
+
+        <p>
+
+            If I could restart my life a thousand times...
+
+            I would still choose you.
+
+            Again.
+
+            Again.
+
+            And forever again.
+
+        </p>
+
+    </div>
+
+</div>
+
+<!--==================================
+PROPOSAL MODAL
+===================================-->
+
+<div id="proposalModal">
+
+    <div class="proposalContent">
+
+        <h1>
+
+            💍
+
+        </h1>
+
+        <h2>
+
+            Will You Stay
+            With Me Forever?
+
+        </h2>
+
+        <p>
+
+            No matter how many seasons life has...
+
+            I always want you
+            to be my favourite episode.
+
+        </p>
+
+        <div class="proposalButtons">
+
+            <button id="yesBtn">
+
+                YES ❤️
+
+            </button>
+
+            <button id="noBtn">
+
+                NO 🙈
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--==================================
 FOOTER
 ===================================-->
 
 <footer>
 
-    <div class="footer-content">
+    <div class="footerTop">
 
         <h2>
 
@@ -3247,296 +2612,365 @@ FOOTER
 
         <p>
 
-            Created With ❤️
-
-            Especially For
-
-            My Favourite Person.
+            A Netflix Inspired Love Story
 
         </p>
 
-        <div class="social-icons">
+    </div>
 
-            <i class="fa-brands fa-instagram"></i>
+    <div class="footerLinks">
 
-            <i class="fa-brands fa-facebook"></i>
+        <a href="#">Home</a>
 
-            <i class="fa-brands fa-youtube"></i>
+        <a href="#">Episodes</a>
 
-            <i class="fa-brands fa-spotify"></i>
+        <a href="#">Gallery</a>
 
-        </div>
+        <a href="#">Our Story</a>
 
-        <span>
-
-            © 2026 LOVEFLIX
-
-        </span>
+        <a href="#">Proposal</a>
 
     </div>
+
+    <div class="footerSocial">
+
+        <i class="fa-brands fa-instagram"></i>
+
+        <i class="fa-brands fa-facebook"></i>
+
+        <i class="fa-brands fa-youtube"></i>
+
+        <i class="fa-brands fa-spotify"></i>
+
+    </div>
+
+    <p class="copyright">
+
+        © 2026 LOVEFLIX ❤️
+        Made With Love Only For You.
+
+    </p>
 
 </footer>
 
 </div>
 
+<!--=========================
+SCRIPT
+==========================-->
+
 <script>
 
-  /*=====================================
-LOVEFLIX
+    /*=====================================
+LOVEFLIX V2
 SCRIPT.JS
 PART 1
 ======================================*/
 
-// ===============================
+// =====================================
 // ELEMENTS
-// ===============================
+// =====================================
 
-const loader = document.getElementById("loader");
+const introScreen = document.getElementById("introScreen");
 
-const intro = document.getElementById("intro");
+const profileScreen = document.getElementById("profileScreen");
 
-const website = document.getElementById("website");
+const mainSite = document.getElementById("mainSite");
+
+const enterBtn = document.getElementById("enterBtn");
 
 const header = document.querySelector("header");
 
-const playBtn = document.querySelector(".play-btn");
+const playBtn = document.querySelector(".play");
 
-const infoBtn = document.querySelector(".info-btn");
+const infoBtn = document.querySelector(".info");
 
-const proposalBtn = document.getElementById("proposalBtn");
+const proposalBtn = document.getElementById("proposalEpisode");
 
-// ===============================
-// WEBSITE DEFAULT
-// ===============================
+// =====================================
+// DEFAULT
+// =====================================
 
-website.style.display = "none";
+profileScreen.style.display = "none";
 
-// ===============================
-// LOADER
-// ===============================
+mainSite.style.display = "none";
 
-window.addEventListener("load", () => {
+// =====================================
+// INTRO
+// =====================================
 
-    setTimeout(() => {
+window.addEventListener("load",()=>{
 
-        loader.style.opacity = "0";
+    setTimeout(()=>{
 
-        loader.style.visibility = "hidden";
+        introScreen.style.opacity="0";
 
-        loader.style.transition = ".8s";
+        introScreen.style.transition=".8s";
 
-        intro.style.display = "flex";
+        setTimeout(()=>{
 
-        setTimeout(() => {
+            introScreen.style.display="none";
 
-            website.style.display = "block";
+            profileScreen.style.display="flex";
 
-            intro.style.display = "none";
+        },800);
 
-        }, 2500);
-
-    }, 1800);
+    },2500);
 
 });
 
-// ===============================
-// HEADER SCROLL
-// ===============================
+// =====================================
+// PROFILE ENTER
+// =====================================
 
-window.addEventListener("scroll", () => {
+enterBtn.addEventListener("click",()=>{
 
-    if(window.scrollY > 80){
+    profileScreen.style.opacity="0";
 
-        header.style.background = "#141414";
+    profileScreen.style.transition=".5s";
 
-        header.style.boxShadow =
-        "0 5px 20px rgba(0,0,0,.45)";
+    setTimeout(()=>{
+
+        profileScreen.style.display="none";
+
+        mainSite.style.display="block";
+
+        window.scrollTo(0,0);
+
+    },500);
+
+});
+
+// =====================================
+// HEADER EFFECT
+// =====================================
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>80){
+
+        header.style.background="#141414";
 
     }
 
     else{
 
-        header.style.background = "transparent";
-
-        header.style.boxShadow = "none";
+        header.style.background="linear-gradient(to bottom,rgba(0,0,0,.85),transparent)";
 
     }
 
 });
 
-// ===============================
-// PLAY BUTTON
-// ===============================
+// =====================================
+// HERO BUTTONS
+// =====================================
 
-playBtn.addEventListener("click", () => {
+playBtn.addEventListener("click",()=>{
 
-    alert(
+    document.getElementById("videoModal").style.display="flex";
 
-`▶ Playing...
-
-Episode 1
-
-"The First Hello ❤️"`
-
-    );
+    document.getElementById("loveVideo").play();
 
 });
 
-// ===============================
-// MORE INFO
-// ===============================
+infoBtn.addEventListener("click",()=>{
 
-infoBtn.addEventListener("click", () => {
-
-    alert(
-
-`LOVEFLIX ORIGINAL
-
-A Story Of My Love ❤️
-
-Genre :
-Romance • Drama • Forever
-
-Episodes :
-6
-
-Status :
-Still Continuing...
-
-⭐⭐⭐⭐⭐`
-
-    );
+    document.getElementById("letterModal").style.display="flex";
 
 });
 
-// ===============================
-// PROPOSAL BUTTON
-// ===============================
+// =====================================
+// CLOSE VIDEO
+// =====================================
+
+document.getElementById("closeVideo")
+
+.addEventListener("click",()=>{
+
+    const video=document.getElementById("loveVideo");
+
+    video.pause();
+
+    video.currentTime=0;
+
+    document.getElementById("videoModal").style.display="none";
+
+});
+
+// =====================================
+// CLOSE LETTER
+// =====================================
+
+document.getElementById("closeLetter")
+
+.addEventListener("click",()=>{
+
+    document.getElementById("letterModal").style.display="none";
+
+});
+
+// =====================================
+// FINAL EPISODE
+// =====================================
 
 proposalBtn.addEventListener("click",()=>{
 
+    document.getElementById("proposalModal")
+
+    .style.display="flex";
+
+});
+
+// =====================================
+// YES BUTTON
+// =====================================
+
+document.getElementById("yesBtn")
+
+.addEventListener("click",()=>{
+
     alert(
 
-`💍
+`❤️
 
-Will You Stay
-With Me Forever?
+Yay!!
 
-❤️`
+Now our Love Story
+has Unlimited Seasons.
+
+💍❤️`
 
     );
+
+});
+
+// =====================================
+// NO BUTTON
+// =====================================
+
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+    const x=Math.random()*300-150;
+
+    const y=Math.random()*200-100;
+
+    noBtn.style.transform=
+
+    `translate(${x}px,${y}px)`;
 
 });
 
 /*=====================================
+LOVEFLIX V2
 SCRIPT.JS
 PART 2
 ======================================*/
 
 // =====================================
-// INTRO TEXT ANIMATION
+// BACKGROUND MUSIC
 // =====================================
 
-const introLetters = document.querySelectorAll(".intro-logo span");
+const bgMusic = new Audio("music/love.mp3");
 
-window.addEventListener("load",()=>{
+bgMusic.loop = true;
+bgMusic.volume = 0.35;
 
-    introLetters.forEach((letter,index)=>{
+let musicStarted = false;
 
-        setTimeout(()=>{
+document.addEventListener("click", () => {
 
-            letter.style.opacity="1";
+    if (!musicStarted) {
 
-            letter.style.transform="translateY(0)";
-            letter.style.transition=".5s";
+        bgMusic.play().catch(() => {});
 
-        },index*150);
+        musicStarted = true;
 
-    });
+    }
 
-});
+}, { once: true });
 
 // =====================================
-// HERO FADE ANIMATION
+// FLOATING HEARTS
 // =====================================
 
-const hero = document.querySelector(".hero-content");
+function createHeart(){
 
-window.addEventListener("load",()=>{
+    const heart = document.createElement("div");
 
-    hero.style.opacity="0";
+    heart.innerHTML = "❤️";
 
-    hero.style.transform="translateY(50px)";
+    heart.classList.add("floatingHeart");
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+    (18 + Math.random()*18) + "px";
+
+    document.body.appendChild(heart);
 
     setTimeout(()=>{
 
-        hero.style.opacity="1";
+        heart.remove();
 
-        hero.style.transform="translateY(0px)";
-
-        hero.style.transition=".8s";
-
-    },3200);
-
-});
-
-// =====================================
-// SCROLL REVEAL
-// =====================================
-
-const reveals = document.querySelectorAll(
-
-".movie-row,.featured-details,.episode-card,.love-letter,.ending"
-
-);
-
-function revealSection(){
-
-    reveals.forEach(section=>{
-
-        const top=section.getBoundingClientRect().top;
-
-        const height=window.innerHeight;
-
-        if(top < height-120){
-
-            section.style.opacity="1";
-
-            section.style.transform="translateY(0)";
-
-        }
-
-    });
+    },5000);
 
 }
 
-reveals.forEach(section=>{
-
-    section.style.opacity="0";
-
-    section.style.transform="translateY(60px)";
-
-    section.style.transition=".7s";
-
-});
-
-window.addEventListener("scroll",revealSection);
-
-revealSection();
+setInterval(createHeart,1500);
 
 // =====================================
-// MOVIE CARD HOVER
+// CONFETTI
 // =====================================
 
-const cards=document.querySelectorAll(".movie-card");
+function confetti(){
+
+    for(let i=0;i<120;i++){
+
+        const piece=document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.animationDuration=
+
+        (2+Math.random()*2)+"s";
+
+        piece.style.background=
+
+        ["#E50914","#FFD700","#FF69B4","#ffffff"]
+
+        [Math.floor(Math.random()*4)];
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+
+            piece.remove();
+
+        },4000);
+
+    }
+
+}
+
+document.getElementById("yesBtn")
+
+.addEventListener("click",confetti);
+
+// =====================================
+// MOVIE HOVER
+// =====================================
+
+const cards=document.querySelectorAll(".movieItem");
 
 cards.forEach(card=>{
 
     card.addEventListener("mouseenter",()=>{
 
         card.style.zIndex="50";
-
-        card.style.transition=".35s";
 
     });
 
@@ -3549,468 +2983,50 @@ cards.forEach(card=>{
 });
 
 // =====================================
-// CARD CLICK
+// PLAY CARD
 // =====================================
 
-cards.forEach(card=>{
+document.querySelectorAll(".cardPlay")
 
-    card.addEventListener("click",()=>{
+.forEach(button=>{
 
-        alert(
+    button.addEventListener("click",(e)=>{
 
-"🎬 Opening this memory...\n\nComing in the next update ❤️"
+        e.stopPropagation();
 
-        );
+        document.getElementById("videoModal")
+
+        .style.display="flex";
+
+        document.getElementById("loveVideo")
+
+        .play();
 
     });
 
 });
 
 // =====================================
-// PARALLAX HERO
+// EPISODE PLAY
 // =====================================
 
-window.addEventListener("scroll",()=>{
+document.querySelectorAll(".episodePlay")
 
-    let value=window.scrollY;
+.forEach(button=>{
 
-    document.querySelector(".hero").style.backgroundPositionY=
+    button.addEventListener("click",()=>{
 
-    value*0.4+"px";
+        document.getElementById("videoModal")
 
-});
+        .style.display="flex";
 
-// =====================================
-// KEYBOARD SHORTCUT
-// =====================================
+        document.getElementById("loveVideo")
 
-document.addEventListener("keydown",(e)=>{
-
-    if(e.code==="Space"){
-
-        e.preventDefault();
-
-        playBtn.click();
-
-    }
-
-});
-
-// =====================================
-// AUTO SCROLL ROWS
-// =====================================
-
-const rows=document.querySelectorAll(".row-container");
-
-rows.forEach(row=>{
-
-    let amount=0;
-
-    setInterval(()=>{
-
-        amount+=1;
-
-        row.scrollLeft=amount;
-
-        if(amount>=row.scrollWidth){
-
-            amount=0;
-
-        }
-
-    },40);
-
-});
-
-/*=====================================
-SCRIPT.JS
-PART 3
-======================================*/
-
-// =====================================
-// BACKGROUND MUSIC
-// =====================================
-
-const bgMusic = new Audio("music/love.mp3");
-
-bgMusic.loop = true;
-
-bgMusic.volume = 0.35;
-
-let musicStarted = false;
-
-document.addEventListener("click", () => {
-
-    if (!musicStarted) {
-
-        bgMusic.play();
-
-        musicStarted = true;
-
-    }
-
-}, { once: true });
-
-// =====================================
-// MUTE BUTTON
-// =====================================
-
-const muteBtn = document.createElement("button");
-
-muteBtn.innerHTML = "🔊";
-
-muteBtn.className = "music-btn";
-
-document.body.appendChild(muteBtn);
-
-muteBtn.addEventListener("click", () => {
-
-    if(bgMusic.muted){
-
-        bgMusic.muted = false;
-
-        muteBtn.innerHTML = "🔊";
-
-    }
-
-    else{
-
-        bgMusic.muted = true;
-
-        muteBtn.innerHTML = "🔇";
-
-    }
-
-});
-
-// =====================================
-// PLAY BUTTON ANIMATION
-// =====================================
-
-playBtn.addEventListener("mouseenter",()=>{
-
-    playBtn.style.transform="scale(1.08)";
-
-});
-
-playBtn.addEventListener("mouseleave",()=>{
-
-    playBtn.style.transform="scale(1)";
-
-});
-
-// =====================================
-// INFO BUTTON ANIMATION
-// =====================================
-
-infoBtn.addEventListener("mouseenter",()=>{
-
-    infoBtn.style.transform="scale(1.08)";
-
-});
-
-infoBtn.addEventListener("mouseleave",()=>{
-
-    infoBtn.style.transform="scale(1)";
-
-});
-
-// =====================================
-// MOVIE CARD FLOAT EFFECT
-// =====================================
-
-cards.forEach(card=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        let rect = card.getBoundingClientRect();
-
-        let x = e.clientX - rect.left;
-
-        let y = e.clientY - rect.top;
-
-        card.style.transform =
-
-        `perspective(900px)
-        rotateY(${(x-120)/18}deg)
-        rotateX(${-(y-160)/18}deg)
-        scale(1.08)`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform="perspective(900px) rotateX(0) rotateY(0) scale(1)";
+        .play();
 
     });
 
 });
-
-// =====================================
-// PROPOSAL BUTTON EFFECT
-// =====================================
-
-proposalBtn.addEventListener("mouseenter",()=>{
-
-    proposalBtn.style.boxShadow="0 0 30px #e50914";
-
-});
-
-proposalBtn.addEventListener("mouseleave",()=>{
-
-    proposalBtn.style.boxShadow="none";
-
-});
-
-// =====================================
-// LOVE LETTER ANIMATION
-// =====================================
-
-const letter = document.querySelector(".letter-box");
-
-window.addEventListener("scroll",()=>{
-
-    const top = letter.getBoundingClientRect().top;
-
-    if(top < window.innerHeight - 150){
-
-        letter.style.opacity="1";
-
-        letter.style.transform="translateY(0px)";
-
-    }
-
-});
-
-letter.style.opacity="0";
-
-letter.style.transform="translateY(60px)";
-
-letter.style.transition=".8s";
-
-// =====================================
-// RANDOM TITLE CHANGE
-// =====================================
-
-const titles=[
-
-"❤️ LOVEFLIX",
-
-"🎬 Our Love Story",
-
-"💕 Forever Us",
-
-"💍 My Favourite Person"
-
-];
-
-let index=0;
-
-setInterval(()=>{
-
-    document.title=titles[index];
-
-    index++;
-
-    if(index>=titles.length){
-
-        index=0;
-
-    }
-
-},3000);
-
-// =====================================
-// END MESSAGE
-// =====================================
-
-console.log(
-
-"%c❤️ LOVEFLIX ❤️",
-
-"color:red;font-size:30px;font-weight:bold;"
-
-);
-
-console.log(
-
-"Made With ❤️ For Someone Special."
-
-);
-
-
-/*=====================================
-SCRIPT.JS
-PART 4
-======================================*/
-
-// =====================================
-// FLOATING HEARTS
-// =====================================
-
-function createHeart(){
-
-    const heart = document.createElement("div");
-
-    heart.innerHTML = "❤️";
-
-    heart.className = "floating-heart";
-
-    heart.style.left = Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-    (18 + Math.random() * 22) + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-
-        heart.remove();
-
-    },5000);
-
-}
-
-setInterval(createHeart,1200);
-
-// =====================================
-// PROPOSAL CONFETTI
-// =====================================
-
-proposalBtn.addEventListener("click",()=>{
-
-    for(let i=0;i<120;i++){
-
-        let confetti=document.createElement("div");
-
-        confetti.className="confetti";
-
-        confetti.style.left=Math.random()*100+"vw";
-
-        confetti.style.top="-20px";
-
-        confetti.style.animationDuration=
-        (2+Math.random()*3)+"s";
-
-        confetti.style.background=
-        ["#E50914","#FFD700","#FF69B4","#ffffff"]
-        [Math.floor(Math.random()*4)];
-
-        document.body.appendChild(confetti);
-
-        setTimeout(()=>{
-
-            confetti.remove();
-
-        },5000);
-
-    }
-
-});
-
-// =====================================
-// SMOOTH SCROLL NAVIGATION
-// =====================================
-
-document.querySelectorAll("a[href^='#']").forEach(link=>{
-
-    link.addEventListener("click",(e)=>{
-
-        e.preventDefault();
-
-        const target=document.querySelector(
-
-            link.getAttribute("href")
-
-        );
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-    });
-
-});
-
-// =====================================
-// CARD RIPPLE EFFECT
-// =====================================
-
-cards.forEach(card=>{
-
-    card.addEventListener("click",(e)=>{
-
-        const ripple=document.createElement("span");
-
-        ripple.className="ripple";
-
-        ripple.style.left=e.offsetX+"px";
-
-        ripple.style.top=e.offsetY+"px";
-
-        card.appendChild(ripple);
-
-        setTimeout(()=>{
-
-            ripple.remove();
-
-        },700);
-
-    });
-
-});
-
-// =====================================
-// FADE HEADER ON HERO
-// =====================================
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY<50){
-
-        header.style.background="transparent";
-
-    }
-
-    else{
-
-        header.style.background="#141414";
-
-    }
-
-});
-
-// =====================================
-// RANDOM QUOTES
-// =====================================
-
-const quotes=[
-
-"Every love story is beautiful, but ours is my favourite. ❤️",
-
-"You are my happy place. 🥹",
-
-"Forever isn't long enough with you. 💍",
-
-"You + Me = Home ❤️"
-
-];
-
-setInterval(()=>{
-
-    const random=
-
-    quotes[Math.floor(Math.random()*quotes.length)];
-
-    console.log(random);
-
-},8000);
 
 // =====================================
 // ESC KEY
@@ -4020,108 +3036,260 @@ document.addEventListener("keydown",(e)=>{
 
     if(e.key==="Escape"){
 
-        bgMusic.pause();
+        document.getElementById("videoModal")
+
+        .style.display="none";
+
+        document.getElementById("letterModal")
+
+        .style.display="none";
+
+        document.getElementById("proposalModal")
+
+        .style.display="none";
+
+        document.getElementById("loveVideo")
+
+        .pause();
 
     }
 
 });
 
 // =====================================
-// MUSIC RESUME
+// SPACEBAR PLAY / PAUSE
 // =====================================
 
 document.addEventListener("keydown",(e)=>{
 
-    if(e.key==="Enter"){
+    if(e.code==="Space"){
 
-        bgMusic.play();
+        e.preventDefault();
+
+        const video=document.getElementById("loveVideo");
+
+        if(video.paused){
+
+            video.play();
+
+        }
+
+        else{
+
+            video.pause();
+
+        }
 
     }
 
 });
 
 // =====================================
-// END
+// SMOOTH REVEAL
 // =====================================
 
-console.log("LoveFlix Loaded Successfully ❤️");
+const sections=document.querySelectorAll(
+
+".movieSection,.top10Section,.moreLike,.episodes,.finalEpisode"
+
+);
+
+function reveal(){
+
+    sections.forEach(section=>{
+
+        const top=section.getBoundingClientRect().top;
+
+        if(top<window.innerHeight-120){
+
+            section.style.opacity="1";
+
+            section.style.transform="translateY(0px)";
+
+        }
+
+    });
+
+}
+
+sections.forEach(section=>{
+
+    section.style.opacity="0";
+
+    section.style.transform="translateY(70px)";
+
+    section.style.transition=".7s";
+
+});
+
+window.addEventListener("scroll",reveal);
+
+reveal();
+
+console.log("LOVEFLIX Premium Effects Loaded ❤️");
 
 
 /*=====================================
-LOVEFLIX
+LOVEFLIX V2
 SCRIPT.JS
-PART 5
+PART 3
 ======================================*/
 
-// ===============================
-// LIVE CLOCK
-// ===============================
+// =====================================
+// CONTINUE WATCHING
+// =====================================
 
-function updateClock(){
+let watchProgress =
 
-    const now = new Date();
+parseInt(localStorage.getItem("watchProgress")) || 18;
 
-    const hour = String(now.getHours()).padStart(2,"0");
+const progressBars =
 
-    const minute = String(now.getMinutes()).padStart(2,"0");
+document.querySelectorAll(".progressBar span");
 
-    const clock = document.getElementById("liveClock");
+function updateProgress(){
 
-    if(clock){
+    progressBars.forEach(bar=>{
 
-        clock.innerHTML = hour + ":" + minute;
+        bar.style.width = watchProgress + "%";
 
-    }
-
-}
-
-setInterval(updateClock,1000);
-
-updateClock();
-
-// ===============================
-// GREETING
-// ===============================
-
-const greeting = document.getElementById("greeting");
-
-if(greeting){
-
-    const h = new Date().getHours();
-
-    if(h < 12){
-
-        greeting.innerHTML = "Good Morning ❤️";
-
-    }
-
-    else if(h < 18){
-
-        greeting.innerHTML = "Good Afternoon ❤️";
-
-    }
-
-    else{
-
-        greeting.innerHTML = "Good Evening ❤️";
-
-    }
+    });
 
 }
 
-// ===============================
-// RANDOM HERO BACKGROUND
-// ===============================
+updateProgress();
 
-const heroImages=[
+document.querySelectorAll(".cardPlay")
 
-"images/banner.jpg",
+.forEach(btn=>{
 
-"images/banner2.jpg",
+    btn.addEventListener("click",()=>{
 
-"images/banner3.jpg",
+        watchProgress += 8;
 
-"images/banner4.jpg"
+        if(watchProgress > 100){
+
+            watchProgress = 100;
+
+        }
+
+        localStorage.setItem(
+
+            "watchProgress",
+
+            watchProgress
+
+        );
+
+        updateProgress();
+
+    });
+
+});
+
+// =====================================
+// MY LIST
+// =====================================
+
+let myList =
+
+JSON.parse(localStorage.getItem("myLoveflixList"))
+
+|| [];
+
+document.querySelectorAll(".movieItem")
+
+.forEach((card,index)=>{
+
+    card.addEventListener("dblclick",()=>{
+
+        if(myList.includes(index)){
+
+            myList=myList.filter(
+
+                item=>item!==index
+
+            );
+
+        }
+
+        else{
+
+            myList.push(index);
+
+        }
+
+        localStorage.setItem(
+
+            "myLoveflixList",
+
+            JSON.stringify(myList)
+
+        );
+
+        showToast(
+
+            "❤️ Saved To My List"
+
+        );
+
+    });
+
+});
+
+// =====================================
+// TOAST
+// =====================================
+
+function showToast(text){
+
+    const toast=document.createElement("div");
+
+    toast.className="toast";
+
+    toast.innerHTML=text;
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+
+        toast.classList.add("show");
+
+    },100);
+
+    setTimeout(()=>{
+
+        toast.remove();
+
+    },2600);
+
+}
+
+// =====================================
+// HERO AUTO CHANGE
+// =====================================
+
+const heroTitles=[
+
+"Our Love Story",
+
+"Forever Together",
+
+"My Favourite Person",
+
+"Unlimited Seasons ❤️"
+
+];
+
+const heroSubtitle=[
+
+"Every episode starts with you.",
+
+"Every memory is unforgettable.",
+
+"You're my favourite notification.",
+
+"Our story never ends."
 
 ];
 
@@ -4131,47 +3299,284 @@ setInterval(()=>{
 
     heroIndex++;
 
-    if(heroIndex>=heroImages.length){
+    if(heroIndex>=heroTitles.length){
 
         heroIndex=0;
 
     }
 
-    document.querySelector(".hero").style.backgroundImage=
+    document.querySelector(".heroContent h1")
 
-    `url(${heroImages[heroIndex]})`;
+    .innerHTML=
 
-},8000);
+    heroTitles[heroIndex];
 
-// ===============================
-// SCROLL TO TOP
-// ===============================
+    document.querySelector(".heroContent p")
 
-const topBtn=document.createElement("button");
+    .innerHTML=
 
-topBtn.innerHTML="⬆";
+    heroSubtitle[heroIndex];
 
-topBtn.className="top-btn";
+},9000);
 
-document.body.appendChild(topBtn);
+// =====================================
+// RANDOM BACKGROUND
+// =====================================
+
+const heroVideo =
+
+document.querySelector(".hero video");
+
+const videos=[
+
+"videos/banner.mp4",
+
+"videos/banner2.mp4",
+
+"videos/banner3.mp4"
+
+];
+
+let currentVideo=0;
+
+setInterval(()=>{
+
+    currentVideo++;
+
+    if(currentVideo>=videos.length){
+
+        currentVideo=0;
+
+    }
+
+    heroVideo.src=
+
+    videos[currentVideo];
+
+    heroVideo.load();
+
+    heroVideo.play();
+
+},30000);
+
+// =====================================
+// LIVE TIME
+// =====================================
+
+function updateClock(){
+
+    const now=new Date();
+
+    const hour=
+
+    String(now.getHours()).padStart(2,"0");
+
+    const minute=
+
+    String(now.getMinutes()).padStart(2,"0");
+
+    document.title=
+
+    `❤️ ${hour}:${minute} • LOVEFLIX`;
+
+}
+
+setInterval(updateClock,1000);
+
+// =====================================
+// AUTO SCROLL SLIDER
+// =====================================
+
+document.querySelectorAll(".movieSlider")
+
+.forEach(slider=>{
+
+    let scroll=0;
+
+    setInterval(()=>{
+
+        scroll+=1;
+
+        slider.scrollLeft=scroll;
+
+        if(scroll>=slider.scrollWidth){
+
+            scroll=0;
+
+        }
+
+    },35);
+
+});
+
+// =====================================
+// HEADER BLUR
+// =====================================
 
 window.addEventListener("scroll",()=>{
 
-    if(window.scrollY>500){
+    if(window.scrollY>120){
 
-        topBtn.style.display="flex";
+        header.style.backdropFilter="blur(12px)";
 
     }
 
     else{
 
-        topBtn.style.display="none";
+        header.style.backdropFilter="blur(0px)";
 
     }
 
 });
 
-topBtn.addEventListener("click",()=>{
+// =====================================
+// END
+// =====================================
+
+console.log(
+
+"%cLOVEFLIX V2 ❤️",
+
+"font-size:28px;color:#E50914;font-weight:bold;"
+
+);
+
+console.log(
+
+"Made With Love ❤️"
+
+);
+
+/*=====================================
+LOVEFLIX V2
+SCRIPT.JS
+PART 4 (FINAL)
+======================================*/
+
+// =====================================
+// 3D CARD TILT EFFECT
+// =====================================
+
+document.querySelectorAll(".movieItem").forEach(card=>{
+
+    card.addEventListener("mousemove",(e)=>{
+
+        const rect=card.getBoundingClientRect();
+
+        const x=e.clientX-rect.left;
+
+        const y=e.clientY-rect.top;
+
+        const rotateY=((x-rect.width/2)/12);
+
+        const rotateX=((rect.height/2-y)/12);
+
+        card.style.transform=
+
+        `perspective(1000px)
+        rotateY(${rotateY}deg)
+        rotateX(${rotateX}deg)
+        scale(1.08)`;
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform=
+
+        "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+
+    });
+
+});
+
+// =====================================
+// FLOATING PARTICLES
+// =====================================
+
+function createParticle(){
+
+    const particle=document.createElement("div");
+
+    particle.className="particle";
+
+    particle.style.left=Math.random()*100+"vw";
+
+    particle.style.animationDuration=
+
+    (5+Math.random()*5)+"s";
+
+    particle.style.opacity=Math.random();
+
+    document.body.appendChild(particle);
+
+    setTimeout(()=>{
+
+        particle.remove();
+
+    },10000);
+
+}
+
+setInterval(createParticle,400);
+
+// =====================================
+// VOLUME BUTTON
+// =====================================
+
+const volumeBtn=document.createElement("button");
+
+volumeBtn.className="volumeBtn";
+
+volumeBtn.innerHTML="🔊";
+
+document.body.appendChild(volumeBtn);
+
+volumeBtn.onclick=()=>{
+
+    if(bgMusic.muted){
+
+        bgMusic.muted=false;
+
+        volumeBtn.innerHTML="🔊";
+
+    }else{
+
+        bgMusic.muted=true;
+
+        volumeBtn.innerHTML="🔇";
+
+    }
+
+};
+
+// =====================================
+// BACK TO TOP
+// =====================================
+
+const topBtn=document.createElement("button");
+
+topBtn.className="topBtn";
+
+topBtn.innerHTML="⬆";
+
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>700){
+
+        topBtn.style.opacity="1";
+
+    }else{
+
+        topBtn.style.opacity="0";
+
+    }
+
+});
+
+topBtn.onclick=()=>{
 
     window.scrollTo({
 
@@ -4181,206 +3586,133 @@ topBtn.addEventListener("click",()=>{
 
     });
 
-});
+};
 
-// ===============================
-// TYPEWRITER EFFECT
-// ===============================
+// =====================================
+// PAGE LOADED
+// =====================================
 
-const typing=document.querySelector(".original");
+window.addEventListener("load",()=>{
 
-if(typing){
-
-    const text=typing.innerHTML;
-
-    typing.innerHTML="";
-
-    let i=0;
-
-    function write(){
-
-        if(i<text.length){
-
-            typing.innerHTML+=text.charAt(i);
-
-            i++;
-
-            setTimeout(write,80);
-
-        }
-
-    }
-
-    write();
-
-}
-
-// ===============================
-// END
-// ===============================
-
-console.log("LoveFlix Premium Effects Loaded ❤️");
-
-/*=====================================
-LOVEFLIX
-SCRIPT.JS
-PART 6
-======================================*/
-
-// ===============================
-// LOCAL STORAGE - MY LIST
-// ===============================
-
-let myList = JSON.parse(localStorage.getItem("loveflixList")) || [];
-
-function saveList() {
-
-    localStorage.setItem(
-        "loveflixList",
-        JSON.stringify(myList)
-    );
-
-}
-
-// ===============================
-// LIKE BUTTON
-// ===============================
-
-document.querySelectorAll(".plus").forEach((btn,index)=>{
-
-    btn.addEventListener("click",(e)=>{
-
-        e.stopPropagation();
-
-        if(myList.includes(index)){
-
-            myList=myList.filter(item=>item!==index);
-
-            btn.innerHTML="+";
-
-        }
-
-        else{
-
-            myList.push(index);
-
-            btn.innerHTML="✓";
-
-        }
-
-        saveList();
-
-    });
+    document.body.classList.add("loaded");
 
 });
 
-// ===============================
-// LOAD SAVED LIST
-// ===============================
+// =====================================
+// PROPOSAL SUCCESS
+// =====================================
 
-document.querySelectorAll(".plus").forEach((btn,index)=>{
+document.getElementById("yesBtn")
 
-    if(myList.includes(index)){
+.addEventListener("click",()=>{
 
-        btn.innerHTML="✓";
+    document.querySelector(".proposalContent")
+
+    .innerHTML=
+
+    `
+
+    <h1 style="font-size:90px;">❤️</h1>
+
+    <h2>She Said YES!</h2>
+
+    <p>
+
+    Our Love Story Has Been Renewed
+
+    For Unlimited Seasons.
+
+    </p>
+
+    <button onclick="location.reload()">
+
+    Watch Again
+
+    </button>
+
+    `;
+
+});
+
+// =====================================
+// NO BUTTON ESCAPE
+// =====================================
+
+const no=document.getElementById("noBtn");
+
+document.addEventListener("mousemove",(e)=>{
+
+    const rect=no.getBoundingClientRect();
+
+    const dx=e.clientX-(rect.left+rect.width/2);
+
+    const dy=e.clientY-(rect.top+rect.height/2);
+
+    const distance=Math.sqrt(dx*dx+dy*dy);
+
+    if(distance<120){
+
+        no.style.left=Math.random()*70+"vw";
+
+        no.style.top=Math.random()*70+"vh";
+
+        no.style.position="fixed";
 
     }
 
 });
 
-// ===============================
-// CONTINUE WATCHING
-// ===============================
+// =====================================
+// SHORTCUT KEYS
+// =====================================
 
-let progress = localStorage.getItem("progress") || 0;
+document.addEventListener("keydown",(e)=>{
 
-function updateProgress(){
+    switch(e.key.toLowerCase()){
 
-    document.querySelectorAll(".progress span").forEach(bar=>{
+        case "m":
 
-        bar.style.width = progress + "%";
+            bgMusic.muted=!bgMusic.muted;
 
-    });
+            break;
 
-}
+        case "h":
 
-updateProgress();
+            window.scrollTo({
 
-playBtn.addEventListener("click",()=>{
+                top:0,
 
-    progress += 10;
+                behavior:"smooth"
 
-    if(progress > 100){
+            });
 
-        progress = 100;
+            break;
+
+        case "l":
+
+            document.getElementById("letterModal")
+
+            .style.display="flex";
+
+            break;
 
     }
 
-    localStorage.setItem("progress",progress);
-
-    updateProgress();
-
 });
 
-// ===============================
-// HERO IMAGE ZOOM
-// ===============================
+// =====================================
+// END MESSAGE
+// =====================================
 
-let zoom = 100;
+console.clear();
 
-setInterval(()=>{
+console.log("%c❤️ LOVEFLIX ❤️",
+"color:#E50914;font-size:34px;font-weight:bold;");
 
-    zoom += 0.05;
-
-    document.querySelector(".hero").style.backgroundSize =
-
-    zoom + "%";
-
-},100);
-
-// ===============================
-// DOUBLE CLICK LIKE
-// ===============================
-
-cards.forEach(card=>{
-
-    card.addEventListener("dblclick",()=>{
-
-        const heart=document.createElement("div");
-
-        heart.innerHTML="❤️";
-
-        heart.style.position="absolute";
-
-        heart.style.left="50%";
-
-        heart.style.top="50%";
-
-        heart.style.transform="translate(-50%,-50%)";
-
-        heart.style.fontSize="60px";
-
-        heart.style.pointerEvents="none";
-
-        card.appendChild(heart);
-
-        setTimeout(()=>{
-
-            heart.remove();
-
-        },1200);
-
-    });
-
-});
-
-// ===============================
-// END
-// ===============================
-
-console.log("Continue Watching Ready ❤️");
+console.log("%cMade Only For Someone Special ❤️",
+"color:white;font-size:18px;");
 </script>
 
 </body>
 
-  </html>
+</html>

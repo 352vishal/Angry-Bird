@@ -2,409 +2,1369 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>For My Ishu ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>One Last Surprise ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 100%);
-            color: #5a2e3a;
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        /* Floating background hearts */
-        .bg-hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
+body {
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+    font-family: "Playfair Display", serif;
+}
 
-        .heart-float {
-            position: absolute;
-            font-size: 1.5rem;
-            color: rgba(255, 182, 193, 0.6);
-            animation: floatUp 6s linear infinite;
-        }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(0.8); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-        }
+/* =========================
+   GENERAL
+========================= */
 
-        .screen {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            text-align: center;
-            z-index: 10;
-            animation: fadeIn 0.4s ease-in-out;
-        }
+.section {
+    width: 100%;
+    min-height: 100vh;
 
-        .active {
-            display: flex;
-        }
+    position: relative;
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    display: flex;
+    flex-direction: column;
 
-        .emoji-art {
-            font-size: 6rem;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite ease-in-out;
-        }
+    align-items: center;
+    justify-content: center;
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+    padding: 60px 22px;
 
-        .title-cursive {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
-            color: #b71c1c;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-        }
+    overflow: hidden;
+}
 
-        .text-box {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            padding: 20px 25px;
-            border-radius: 20px;
-            font-size: 1.2rem;
-            color: #8e44ad;
-            font-weight: 600;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
-            max-width: 350px;
-        }
 
-        .btn-group {
-            display: flex;
-            gap: 15px;
-        }
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-        .btn {
-            background: #ff4d6d;
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-            transition: transform 0.2s;
-            font-family: 'Quicksand', sans-serif;
-        }
+#hearts {
+    position: fixed;
 
-        .btn-back {
-            background: rgba(255, 255, 255, 0.6);
-            color: #5a2e3a;
-            box-shadow: none;
-        }
+    inset: 0;
 
-        .btn:active {
-            transform: scale(0.95);
-        }
+    pointer-events: none;
 
-        /* Screen 5 & 6: Envelope & Letter */
-        .envelope-wrapper {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .envelope-wrapper:active { transform: scale(0.95); }
+    overflow: hidden;
 
-        .letter-card {
-            background: #fff9e6;
-            padding: 20px 15px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 360px;
-            width: 95%;
-            text-align: center;
-            /* Added fixes for mobile screens */
-            max-height: 55vh; 
-            overflow-y: auto; 
-        }
+    z-index: 20;
+}
 
-        .letter-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem; /* Adjusted for mobile */
-            color: #4a4e69;
-            line-height: 1.4;
-            margin: 15px 0;
-        }
+.heart {
+    position: absolute;
 
-        /* Screen 7: Forgiveness Meter */
-        .meter-container {
-            width: 100%;
-            max-width: 300px;
-            height: 25px;
-            background: #ffe3e8;
-            border-radius: 15px;
-            margin: 20px 0;
-            overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-        }
+    bottom: -50px;
 
-        .meter-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #ff758c 0%, #ff7eb3 100%);
-            border-radius: 15px;
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    font-size: 18px;
 
-        .tap-heart-btn {
-            font-size: 4rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            animation: pulse 1.5s infinite;
-            -webkit-tap-highlight-color: transparent;
-        }
+    opacity: 0;
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+    animation:
+        floatHeart linear forwards;
+}
 
-        /* Screen 9: Bribes */
-        .bribes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 350px;
-            max-height: 55vh;
-            overflow-y: auto;
-            padding-bottom: 20px;
-        }
+@keyframes floatHeart {
 
-        .bribe-card {
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s;
-        }
+    0% {
+        transform:
+            translateY(0)
+            scale(.5)
+            rotate(0deg);
 
-        .bribe-card.selected {
-            border-color: #4cd137;
-            background: #f1fdf1;
-        }
+        opacity: 0;
+    }
 
-        .bribe-icon { font-size: 2.5rem; margin-bottom: 5px; }
-        .bribe-title { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #b71c1c; }
-        .bribe-desc { font-size: 0.9rem; color: #636e72; margin: 5px 0; }
-        
-        .check-mark {
-            display: none;
-            color: #4cd137;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-        .bribe-card.selected .check-mark { display: block; }
+    15% {
+        opacity: .9;
+    }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #ff758c; border-radius: 10px; }
+    80% {
+        opacity: .8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.2)
+            rotate(35deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn {
+    position: fixed;
+
+    right: 18px;
+    top: 20px;
+
+    z-index: 100;
+
+    border: none;
+
+    background: #f45119;
+
+    color: white;
+
+    width: 75px;
+    height: 44px;
+
+    border-radius: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.5);
+}
+
+.music-btn:active {
+    transform: scale(.95);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at center,
+            #170b08 0%,
+            #000 55%
+        );
+}
+
+.hero-content {
+    text-align: center;
+
+    position: relative;
+
+    animation: heroIn 1.5s ease;
+}
+
+@keyframes heroIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sparkles {
+    display: inline-block;
+
+    font-size: 28px;
+
+    margin: 5px 8px;
+
+    animation:
+        sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+
+    from {
+        transform: scale(.8)
+                   rotate(-8deg);
+    }
+
+    to {
+        transform: scale(1.15)
+                   rotate(8deg);
+    }
+}
+
+.hero h1 {
+
+    display: inline-block;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-style: italic;
+
+    font-size: clamp(
+        38px,
+        9vw,
+        68px
+    );
+
+    line-height: 1.05;
+
+    color: #fff;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,.15);
+}
+
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card {
+
+    margin:
+        35px auto 0;
+
+    width: min(
+        330px,
+        90vw
+    );
+
+    min-height: 420px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #f1eeee
+        );
+
+    border-radius: 25px;
+
+    position: relative;
+
+    color: #6e2b21;
+
+    padding: 45px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    box-shadow:
+        0 20px 80px
+        rgba(255,70,20,.12);
+
+    transform:
+        rotate(-2deg);
+
+    animation:
+        cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform:
+            rotate(-2deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(1deg)
+            translateY(-12px);
+    }
+}
+
+.hero-card p {
+
+    font-size: 24px;
+
+    line-height: 1.5;
+}
+
+.big-heart {
+
+    font-size: 75px;
+
+    margin-top: 30px;
+
+    animation:
+        heartBeat 1.2s infinite;
+}
+
+@keyframes heartBeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.mini-hearts {
+    position: absolute;
+
+    top: 25px;
+    left: 30px;
+
+    font-size: 18px;
+}
+
+.card-decoration {
+    position: absolute;
+
+    right: 30px;
+    top: 35px;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   LOVE LETTER
+========================= */
+
+.letter {
+
+    background:
+        radial-gradient(
+            circle,
+            #130806,
+            #000 70%
+        );
+}
+
+.paper {
+
+    width: min(
+        420px,
+        94vw
+    );
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff,
+            #eeeae5
+        );
+
+    color: #38251e;
+
+    padding:
+        45px 30px;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 80px
+        rgba(255,255,255,.08);
+
+    transform: rotate(1deg);
+
+    position: relative;
+}
+
+.paper::before,
+.paper::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    color: #f35b25;
+
+    font-size: 20px;
+
+    opacity: .8;
+}
+
+.paper::before {
+
+    top: 25px;
+    left: 22px;
+}
+
+.paper::after {
+
+    right: 22px;
+    bottom: 25px;
+}
+
+.paper h2 {
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-style: italic;
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+    color: #9b472e;
+}
+
+.paper p {
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    margin:
+        14px 0;
+}
+
+.paper .signature {
+
+    color: #a3422d;
+
+    font-size: 22px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+
+    justify-content:
+        flex-start;
+
+    gap: 60px;
+
+    padding-top: 100px;
+
+    background: #000;
+}
+
+.photo-card {
+
+    width: min(
+        390px,
+        90vw
+    );
+
+    background: #f7f4ef;
+
+    padding: 12px 12px 25px;
+
+    color: #222;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.8);
+
+    transform:
+        rotate(1deg);
+
+    transition:
+        .8s ease;
+
+    opacity: 0;
+
+    transform:
+        translateY(60px)
+        rotate(1deg);
+}
+
+.photo-card.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        rotate(1deg);
+}
+
+.photo-card.rotate-left {
+    transform:
+        translateY(60px)
+        rotate(-3deg);
+}
+
+.photo-card.rotate-left.show {
+    transform:
+        translateY(0)
+        rotate(-3deg);
+}
+
+.photo-card.rotate-right {
+    transform:
+        translateY(60px)
+        rotate(3deg);
+}
+
+.photo-card.rotate-right.show {
+    transform:
+        translateY(0)
+        rotate(3deg);
+}
+
+.photo-card img {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    object-fit: cover;
+}
+
+.photo-card p {
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-style: italic;
+
+    font-size: 22px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================
+   SWEET SECTION
+========================= */
+
+.sweet {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #180a05,
+            #000 70%
+        );
+
+    text-align: center;
+}
+
+.sweet-image {
+
+    width: min(
+        430px,
+        92vw
+    );
+
+    transform: rotate(-2deg);
+
+    margin-bottom: 30px;
+}
+
+.sweet-image img {
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(255,60,20,.12);
+}
+
+.sweet h2 {
+
+    font-size: 40px;
+
+    font-style: italic;
+}
+
+.sweet p {
+
+    font-size: 22px;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   HOME SECTION
+========================= */
+
+.home {
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #06182b,
+            #000 75%
+        );
+}
+
+.couple-card {
+
+    width: min(
+        430px,
+        92vw
+    );
+
+    background: #f7f5f0;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    transform:
+        rotate(-2deg);
+
+    margin-bottom: 45px;
+}
+
+.couple-card img {
+
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio: 4/5;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+}
+
+.home h2 {
+
+    max-width: 700px;
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-style: italic;
+
+    font-size:
+        clamp(32px, 7vw, 55px);
+
+    line-height: 1.2;
+}
+
+
+/* =========================
+   FOREVER
+========================= */
+
+.forever {
+
+    text-align: center;
+
+    background: #000;
+
+    justify-content:
+        flex-start;
+
+    padding-top: 110px;
+}
+
+.small-title {
+
+    letter-spacing:
+        5px;
+
+    font-size: 13px;
+
+    color: #d6b58b;
+
+    margin-bottom: 35px;
+}
+
+.forever h2 {
+
+    max-width: 700px;
+
+    font-size:
+        clamp(
+            35px,
+            8vw,
+            60px
+        );
+
+    font-style: italic;
+
+    line-height: 1.2;
+
+    margin-bottom: 35px;
+}
+
+.forever p {
+
+    max-width: 650px;
+
+    font-size:
+        clamp(
+            19px,
+            4vw,
+            25px
+        );
+
+    line-height: 1.65;
+
+    font-style: italic;
+
+    margin: 20px auto;
+
+    color: #f1f1f1;
+}
+
+.forever h3 {
+
+    margin-top: 35px;
+
+    font-size: 30px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+
+    min-height: 90vh;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #190a06,
+            #000 70%
+        );
+}
+
+.final-heart {
+
+    font-size: 90px;
+
+    animation:
+        heartBeat 1.4s infinite;
+}
+
+.final h1 {
+
+    font-family:
+        "DM Serif Display",
+        serif;
+
+    font-style: italic;
+
+    font-size:
+        clamp(
+            45px,
+            10vw,
+            75px
+        );
+
+    color: #f3ddd5;
+
+    margin:
+        25px 0;
+}
+
+.line {
+
+    width: 180px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.5);
+
+    margin:
+        25px auto;
+}
+
+.final p {
+
+    font-size: 21px;
+
+    margin: 10px;
+}
+
+.final-message {
+
+    margin-top: 50px;
+
+    font-size: 26px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-card {
+        min-height: 400px;
+    }
+
+    .paper {
+        padding:
+            40px 23px;
+    }
+
+    .paper p {
+        font-size: 16px;
+    }
+
+    .music-btn {
+        top: 15px;
+        right: 15px;
+    }
+
+}
     </style>
 </head>
+
 <body>
 
-    <div class="bg-hearts" id="bgHearts"></div>
+    <!-- MUSIC -->
+    <audio id="music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Screen 1 -->
-    <div id="screen1" class="screen active">
-        <div class="emoji-art">💔🥺</div>
-        <h1 class="title-cursive">I know maine tumhe hurt kiya</h1>
-        <div class="text-box">I messed up... aur mujhe is baat ka sach mein bahut afsos hai.</div>
-        <div class="btn-group">
-            <button class="btn" onclick="nextScreen('screen2')">Next ➔</button>
-        </div>
-    </div>
+    <button class="music-btn" id="musicBtn">
+        <span id="musicIcon">▶</span>
+        <span>♪</span>
+    </button>
 
-    <!-- Screen 2 -->
-    <div id="screen2" class="screen">
-        <div class="emoji-art">😿💖</div>
-        <h1 class="title-cursive">I Messed Up, Ishu 😢</h1>
-        <div class="text-box">Par main ise theek karne ke liye ready hoon. Kya tum meri baat sunoge?</div>
-        <div class="btn-group">
-            <button class="btn btn-back" onclick="nextScreen('screen1')">← Back</button>
-            <button class="btn" onclick="nextScreen('screen3')">Listen to my heart 💝</button>
-        </div>
-    </div>
 
-    <!-- Screen 3 -->
-    <div id="screen3" class="screen">
-        <div class="emoji-art">😭🙇‍♂️</div>
-        <h1 class="title-cursive">I'm Truly Sorry</h1>
-        <div class="text-box">Please mujhe maaf kar do... tum mere liye bahut zyada important ho.</div>
-        <div class="btn-group">
-            <button class="btn btn-back" onclick="nextScreen('screen2')">← Back</button>
-            <button class="btn" onclick="nextScreen('screen4')">Next ➔</button>
-        </div>
-    </div>
+    <!-- HEART CONTAINER -->
+    <div id="hearts"></div>
 
-    <!-- Screen 4 -->
-    <div id="screen4" class="screen">
-        <div class="emoji-art">🐻❤️🐻</div>
-        <h1 class="title-cursive">You Mean Everything</h1>
-        <div class="text-box">Main tumhare liye better banne ka promise karta hoon..</div>
-        <div class="btn-group">
-            <button class="btn btn-back" onclick="nextScreen('screen3')">← Back</button>
-            <button class="btn" onclick="nextScreen('screen5')">Next ➔</button>
-        </div>
-    </div>
 
-    <!-- Screen 5: Envelope -->
-    <div id="screen5" class="screen">
-        <div class="envelope-wrapper" onclick="nextScreen('screen6')">
-            <div style="font-size: 8rem;">💌</div>
-            <h2 class="title-cursive" style="margin-top: 20px; font-size: 2rem;">CLICK TO OPEN ❤️</h2>
-        </div>
-    </div>
+    <!-- SECTION 1 -->
+    <section class="hero section">
 
-    <!-- Screen 6: Letter (Fixed for Mobile) -->
-    <div id="screen6" class="screen">
-        <h2 class="title-cursive" style="font-size: 1.8rem; color: #ff4d6d; margin-bottom: 15px;">A VIRTUAL PEACE OFFERING ❤️</h2>
-        <div class="letter-card">
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #b71c1c;">My Dearest Ishu,</p>
-            <p class="letter-text">—  "I am really sorry, Maine galti se tumhe hurt kiya, Tum mere liye sabse precious ho, please mujhe maaf kar do.". 🥺</p>
-            <div style="font-size: 2.5rem; margin: 10px 0;">🧸🎀</div>
-            <p style="font-family: 'Dancing Script', cursive; font-size: 1.4rem; color: #b71c1c;">Please forgive me? 🥺</p>
-        </div>
-        <button class="btn" style="margin-top: 20px; margin-bottom: 10px;" onclick="nextScreen('screen7')">Next ➔</button>
-    </div>
+        <div class="hero-content">
 
-    <!-- Screen 7: Forgiveness Meter -->
-    <div id="screen7" class="screen">
-        <h1 class="title-cursive" style="font-size: 2.2rem; color: #b71c1c;">FORGIVENESS METER ❤️</h1>
-        <div class="emoji-art" style="font-size: 5rem;">🥺🙏</div>
-        <div class="meter-container">
-            <div class="meter-fill" id="meterFill"></div>
-        </div>
-        <h2 style="color: #b71c1c; font-weight: 700;" id="meterText">0% FORGIVEN</h2>
-        <p style="color: #ff4d6d; font-family: 'Dancing Script', cursive; font-size: 1.8rem; margin-top: 15px;">Heart ko tap karo taaki mera dil heal ho sake!</p>
-        <button class="tap-heart-btn" onclick="tapHeart()">💖</button>
-    </div>
-
-    <!-- Screen 8: 100% Forgiven -->
-    <div id="screen8" class="screen">
-        <h1 class="title-cursive" style="font-size: 2.2rem; color: #b71c1c;">FORGIVENESS METER ❤️</h1>
-        <div class="emoji-art" style="font-size: 6rem; animation: none;">🎉🫂</div>
-        <div class="meter-container">
-            <div class="meter-fill" style="width: 100%;"></div>
-        </div>
-        <h2 style="color: #b71c1c; font-weight: 700;">100% FORGIVEN</h2>
-        <p style="color: #ff4d6d; font-family: 'Dancing Script', cursive; font-size: 2rem; margin-top: 10px;">Tumhe maaf kar diya gaya hai! 💕</p>
-        <button class="btn" style="margin-top: 20px;" onclick="nextScreen('screen9')">Next ➔</button>
-    </div>
-
-    <!-- Screen 9: Bribes (Fixed for Mobile) -->
-    <div id="screen9" class="screen">
-        <div class="bribes-container">
-            <div class="bribe-card" onclick="this.classList.toggle('selected')">
-                <div class="bribe-icon">🌸</div>
-                <div class="bribe-title">FRESH BLOOMS</div>
-                <div class="bribe-desc">Valid for 1 bouquet delivery + unlimited forehead kisses 💕</div>
-                <div class="check-mark">✅ Redeemable anytime</div>
+            <div class="sparkles">
+                ✨
             </div>
-            <div class="bribe-card" onclick="this.classList.toggle('selected')">
-                <div class="bribe-icon">🧸</div>
-                <div class="bribe-title">CUDDLE PASS</div>
-                <div class="bribe-desc">Valid for unlimited hugs, cuddles & no drama day 🥰</div>
-                <div class="check-mark">✅ Redeemable anytime</div>
-            </div>
-            <div class="bribe-card" onclick="this.classList.toggle('selected')">
-                <div class="bribe-icon">🍫</div>
-                <div class="bribe-title">SWEET TREAT</div>
-                <div class="bribe-desc">Valid for your favorite chocolate + my full attention 😊</div>
-                <div class="check-mark">✅ Redeemable anytime</div>
-            </div>
-        </div>
-        <button class="btn" style="margin-top: 15px; width: 100%; max-width: 350px;" onclick="nextScreen('screen10')">ENOUGH BRIBES!</button>
-    </div>
 
-    <!-- Screen 10: Final Treaty -->
-    <div id="screen10" class="screen">
-        <div style="display: flex; gap: 10px; margin-bottom: 20px; font-size: 3rem;">
-            <span>🫂</span><span>🧸</span><span>💐</span>
+            <h1>
+                One Last<br>
+                Surprise Awaits...
+            </h1>
+
+            <div class="sparkles">
+                ✨
+            </div>
+
+            <div class="hero-card">
+
+                <div class="mini-hearts">
+                    ❤️
+                </div>
+
+                <div class="card-decoration">
+                    ♥
+                </div>
+
+                <p>
+                    A little surprise
+                    made especially
+                    for you.
+                </p>
+
+                <div class="big-heart">
+                    ❤️
+                </div>
+
+            </div>
+
         </div>
-        <h1 class="title-cursive" style="font-size: 2.5rem; color: #d63031;">PEACE TREATY SIGNED! 🕊️</h1>
-        <p style="font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #ff7675; margin-bottom: 20px;">NEW BEGINNINGS AHEAD</p>
-        
-        <div class="text-box" style="color: #2d3436; font-size: 1.1rem; max-width: 400px;">
-            Thank you for being the most forgiving and wonderful person. I love you to the moon and back and I'm never letting go! 💚🙏
+
+    </section>
+
+
+    <!-- SECTION 2 -->
+    <section class="letter section">
+
+        <div class="paper">
+
+            <h2>
+                Dear Love ❤️
+            </h2>
+
+            <p>
+                If life gives me a thousand chances...
+            </p>
+
+            <p>
+                I'll fall in love with you
+                a thousand times.
+            </p>
+
+            <p>
+                Not because you're perfect.
+            </p>
+
+            <p>
+                But because somehow,
+                everything feels right
+                when you're beside me.
+            </p>
+
+            <p>
+                And that's all I've ever needed.
+                ❤️
+            </p>
+
+            <p>
+                If one day someone asks me,
+            </p>
+
+            <p>
+                <em>
+                    "What was the best decision
+                    you ever made?"
+                </em>
+            </p>
+
+            <p>
+                I'll smile...
+            </p>
+
+            <p>
+                because the answer has always
+                been you.
+            </p>
+
+            <p>
+                Thank you for loving me
+                and staying with me.
+            </p>
+
+            <p class="signature">
+                I love you ❤️
+            </p>
+
+            <p>
+                More than yesterday,
+                less than tomorrow.
+            </p>
+
         </div>
-    </div>
+
+    </section>
+
+
+    <!-- SECTION 3 -->
+    <section class="gallery section">
+
+        <div class="photo-card reveal">
+
+            <img
+                src="assets/photo1.jpg"
+                alt="Our memory"
+            >
+
+            <p>Our story ❤️</p>
+
+        </div>
+
+
+        <div class="photo-card rotate-left reveal">
+
+            <img
+                src="assets/photo2.jpg"
+                alt="Beautiful memory"
+            >
+
+            <p>Every moment with you</p>
+
+        </div>
+
+
+        <div class="photo-card rotate-right reveal">
+
+            <img
+                src="assets/photo3.jpg"
+                alt="Special memory"
+            >
+
+            <p>Feels like home ❤️</p>
+
+        </div>
+
+
+        <div class="photo-card reveal">
+
+            <img
+                src="assets/photo4.jpg"
+                alt="Forever memory"
+            >
+
+            <p>Forever & always</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECTION 4 -->
+    <section class="sweet section">
+
+        <div class="sweet-image">
+
+            <img
+                src="assets/gift.jpg"
+                alt="Sweet surprise"
+            >
+
+        </div>
+
+        <h2>
+            A little sweetness
+        </h2>
+
+        <p>
+            to make your day
+            a little sweeter. ❤️
+        </p>
+
+    </section>
+
+
+    <!-- SECTION 5 -->
+    <section class="home section">
+
+        <div class="couple-card">
+
+            <img
+                src="assets/photo5.jpg"
+                alt="Together"
+            >
+
+        </div>
+
+        <h2>
+            You are the home
+            my heart was always
+            searching for.
+            ❤️
+        </h2>
+
+    </section>
+
+
+    <!-- SECTION 6 -->
+    <section class="forever section">
+
+        <span class="small-title">
+            TO MY FOREVER PERSON
+        </span>
+
+        <h2>
+            "I never knew someone could
+            change my life just by being
+            in it.
+        </h2>
+
+        <p>
+            You make my happiest moments
+            even happier and somehow make
+            the difficult days easier too.
+        </p>
+
+        <p>
+            Thank you for loving me,
+            understanding me, and standing
+            by my side through everything.
+        </p>
+
+        <p>
+            No matter how busy life gets
+            or how much things change,
+            one thing will never change...
+        </p>
+
+        <h3>
+            I will always choose you. ❤️
+        </h3>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="final section">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <h1>
+            Yours Forever
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            No Expiry.
+        </p>
+
+        <p>
+            No Returns.
+        </p>
+
+        <p>
+            Yours Forever ♾️
+        </p>
+
+        <div class="final-message">
+            With all my heart ❤️
+        </div>
+
+    </section>
+
 
     <script>
-        // Floating Hearts Background
-        const heartContainer = document.getElementById('bgHearts');
-        const heartEmojis = ['💖', '💕', '💗', '💓', '🌸'];
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.classList.add('heart-float');
-            heart.innerText = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heartContainer.appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }, 800);
+        /* =========================
+   MUSIC
+========================= */
 
-        function nextScreen(screenId) {
-            document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
-            document.getElementById(screenId).classList.add('active');
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const musicIcon =
+    document.getElementById("musicIcon");
+
+let playing = false;
+
+
+musicBtn.addEventListener("click", async () => {
+
+    if (!playing) {
+
+        try {
+
+            await music.play();
+
+            playing = true;
+
+            musicIcon.textContent = "Ⅱ";
+
+        } catch (error) {
+
+            console.log(
+                "Music could not start:",
+                error
+            );
+
         }
 
-        let forgivenessLevel = 0;
-        function tapHeart() {
-            if (forgivenessLevel < 100) {
-                forgivenessLevel += 25;
-                document.getElementById('meterFill').style.width = forgivenessLevel + '%';
-                document.getElementById('meterText').innerText = forgivenessLevel + '% FORGIVEN';
-                
-                if (forgivenessLevel >= 100) {
-                    setTimeout(() => {
-                        nextScreen('screen8');
-                    }, 600);
+    } else {
+
+        music.pause();
+
+        playing = false;
+
+        musicIcon.textContent = "▶";
+    }
+
+});
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+const heartContainer =
+    document.getElementById("hearts");
+
+
+function createHeart() {
+
+    const heart =
+        document.createElement("span");
+
+    heart.classList.add("heart");
+
+    const hearts = [
+        "♥",
+        "❤️",
+        "🧡",
+        "♥"
+    ];
+
+    heart.textContent =
+        hearts[
+            Math.floor(
+                Math.random() * hearts.length
+            )
+        ];
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    const duration =
+        5 + Math.random() * 7;
+
+    heart.style.animationDuration =
+        duration + "s";
+
+    heartContainer.appendChild(heart);
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, duration * 1000);
+}
+
+
+setInterval(
+    createHeart,
+    450
+);
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "show"
+                    );
+
                 }
-            }
+
+            });
+
+        },
+        {
+            threshold: 0.15
         }
+    );
+
+
+revealElements.forEach(
+    element => observer.observe(element)
+);
+
+
+/* =========================
+   RANDOM HEART BURST
+========================= */
+
+function heartBurst() {
+
+    for (
+        let i = 0;
+        i < 12;
+        i++
+    ) {
+
+        setTimeout(
+            createHeart,
+            i * 100
+        );
+
+    }
+}
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            heartBurst,
+            1000
+        );
+
+    }
+);
     </script>
+
 </body>
 </html>
